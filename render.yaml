@@ -11,8 +11,9 @@ services:
       - key: FLASK_ENV
         value: production
 
-  - type: static
+  - type: web
     name: carpark-frontend
+    runtime: static
     rootDir: frontend
     buildCommand: npm install && npm run build
     staticPublishPath: build
