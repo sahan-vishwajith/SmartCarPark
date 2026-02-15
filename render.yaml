@@ -19,8 +19,5 @@ services:
     staticPublishPath: build
     envVars:
       - key: REACT_APP_API_URL
-        fromService:
-          type: web
-          name: carpark-backend
-          property: url
+        sync: false  # Set this manually to your backend URL (e.g., https://carpark-backend.onrender.com)
 
