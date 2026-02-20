@@ -1,5 +1,21 @@
-Flask==3.0.0
-flask-cors==4.0.0
-python-dotenv==1.0.0
-gunicorn==21.2.0
+# Add your project dependencies below, one per line.
+# Recommended workflow (run from your activated virtualenv):
+# 1) pip install <packages you need>
+# 2) pip freeze > requirements.txt
+#
+# Example (uncomment and pin versions as appropriate for your project):
+# fastapi==0.95.2
+# uvicorn[standard]==0.22.0
+# sqlalchemy==2.0.15
+# alembic==1.11.1
+# psycopg2-binary==2.9.6     # PostgreSQL adapter
+# python-dotenv==1.0.0       # load .env files
+# pydantic==1.10.9
+#
+# If your project uses Django, example:
+# Django==4.2.3
+# djangorestframework==3.14.0
+#
+# If you prefer to keep this file minimal while developing, leave it blank
+# and run `pip freeze > requirements.txt` when you're ready to lock versions.
 

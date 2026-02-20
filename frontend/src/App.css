@@ -1,115 +1,673 @@
-.App {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+/* --- Palette (based on your screenshot vibe) --- */
+:root {
+  --bg: #06080d;           /* deep navy/black */
+  --card: rgba(255, 255, 255, 0.04);
+  --border: rgba(255, 255, 255, 0.12);
+
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.62);
+  --dim: rgba(255, 255, 255, 0.35);
+
+  --accent: #27d66b;       /* green accent */
+  --accent2: #19b85a;      /* darker green */
 }
 
-.App-header {
-  background-color: rgba(0, 0, 0, 0.2);
-  padding: 2rem;
-  text-align: center;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+* {
+  box-sizing: border-box;
 }
 
-.App-header h1 {
+html, body {
+  height: 100%;
   margin: 0;
-  font-size: 2.5rem;
-  font-weight: bold;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", sans-serif;
+  background: var(--bg);
+  color: var(--text);
 }
 
-.App-header p {
-  margin: 0.5rem 0 0 0;
-  font-size: 1.1rem;
-  opacity: 0.9;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-.App-main {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 0 1rem;
+.page {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  padding: 22px 34px;
 }
 
-.status-card {
-  background: white;
-  color: #333;
-  border-radius: 12px;
-  padding: 2rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+/* --- Background look (dark + soft glow) --- */
+.bgRadial {
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(700px 450px at 15% 18%, rgba(39, 214, 107, 0.22), transparent 60%),
+    radial-gradient(900px 600px at 70% 40%, rgba(255, 255, 255, 0.06), transparent 55%),
+    radial-gradient(800px 600px at 40% 90%, rgba(39, 214, 107, 0.10), transparent 60%);
+  filter: blur(10px);
+  opacity: 0.95;
+  pointer-events: none;
 }
 
-.status-card h2 {
-  margin-top: 0;
-  color: #667eea;
+.bgNoise {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.15;
+  pointer-events: none;
 }
 
-.status-info {
-  background-color: #f0f9ff;
-  border-left: 4px solid #10b981;
-  padding: 1rem;
-  border-radius: 4px;
-  margin: 1rem 0;
+/* --- Navbar --- */
+.nav {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 10px 4px;
 }
 
-.status-info p {
-  margin: 0.5rem 0;
+.navLeft {
+  display: flex;
+  align-items: center;
+  gap: 26px;
 }
 
-.success {
-  color: #10b981;
-  font-weight: bold;
+.brand {
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  font-size: 22px;
+  display: flex;
+  align-items: baseline;
+  gap: 0px;
 }
 
-.error {
-  color: #ef4444;
-  font-weight: bold;
+.brandAccent {
+  color: var(--accent);
 }
 
-.loading {
-  color: #667eea;
-  font-style: italic;
+.brandWhite {
+  color: var(--text);
 }
 
-button {
-  background-color: #667eea;
-  color: white;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  border-radius: 6px;
+.navLinks {
+  display: flex;
+  gap: 18px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+}
+
+.navLinks a {
+  font-size: 14px;
+  color: var(--muted);
+  transition: color 0.2s ease;
+}
+
+.navLinks a:hover {
+  color: var(--text);
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navBtn {
+  font-size: 14px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  transition: transform 0.15s ease, background 0.15s ease, border 0.15s ease;
+}
+
+.navBtn:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.navBtn.solid {
+  border-color: rgba(39, 214, 107, 0.35);
+  background: rgba(39, 214, 107, 0.12);
+}
+
+.navBtn.solid:hover {
+  border-color: rgba(39, 214, 107, 0.55);
+  background: rgba(39, 214, 107, 0.18);
+}
+
+/* --- Hero --- */
+.hero {
+  position: relative;
+  z-index: 2;
+  max-width: 980px;
+  margin: 90px auto 0;
+  text-align: center;
+  padding: 20px 16px 0;
+}
+
+.heroTitle {
+  font-size: clamp(36px, 4.2vw, 64px);
+  line-height: 1.06;
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.heroTitleDim {
+  color: rgba(255, 255, 255, 0.32);
+  font-weight: 800;
+}
+
+.heroSubtitle {
+  margin: 18px auto 0;
+  max-width: 780px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.heroActions {
+  margin-top: 26px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.primaryBtn,
+.secondaryBtn {
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: transform 0.15s ease, background 0.15s ease, border 0.15s ease;
 }
 
-button:hover {
-  background-color: #764ba2;
+.primaryBtn {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
 }
 
-.welcome {
-  background: white;
-  color: #333;
+.primaryBtn:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.secondaryBtn {
+  background: rgba(39, 214, 107, 0.12);
+  border-color: rgba(39, 214, 107, 0.35);
+  color: var(--text);
+}
+
+.secondaryBtn:hover {
+  transform: translateY(-1px);
+  background: rgba(39, 214, 107, 0.18);
+  border-color: rgba(39, 214, 107, 0.55);
+}
+
+/* --- Responsive tweaks --- */
+@media (max-width: 760px) {
+  .page {
+    padding: 18px 18px;
+  }
+
+  .navLinks {
+    display: none; /* hide middle links on mobile for now */
+  }
+
+  .hero {
+    margin-top: 70px;
+  }
+}
+/* ---------- Auth Pages (Login/Register) ---------- */
+.authWrap {
+  min-height: calc(100vh - 92px);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.authCard {
+  width: min(520px, 92vw);
+  border-radius: 18px;
+  padding: 22px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(14px);
+}
+
+.authHeader {
+  margin-bottom: 14px;
+}
+
+.authTitle {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.authSub {
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.authForm {
+  display: grid;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.fieldLabel {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.fieldInput {
+  height: 42px;
   border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  padding: 0 12px;
+  outline: none;
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.14);
 }
 
-.welcome h2 {
-  color: #667eea;
-  margin-top: 0;
+.fieldInput::placeholder {
+  color: rgba(255, 255, 255, 0.45);
 }
 
-.welcome code {
-  background-color: #f3f4f6;
-  padding: 0.2rem 0.4rem;
-  border-radius: 4px;
-  font-family: monospace;
-  color: #764ba2;
+.fieldInput:focus {
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.08);
 }
 
-code {
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 0.2rem 0.4rem;
-  border-radius: 4px;
-  font-family: monospace;
+.fieldSelect {
+  appearance: none;
 }
 
+.authBtn {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.authFooterText {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.66);
+  text-align: center;
+}
+
+.authLink {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.4);
+}
+
+.authLink:hover {
+  border-bottom-color: rgba(255, 255, 255, 0.75);
+}
+/* =========================
+   BIGGER Auth Pages (Mobile)
+   Same theme as home
+========================= */
+
+.authWrap {
+  min-height: calc(100vh - 82px);
+  display: grid;
+  place-items: center;
+  padding: 16px;
+}
+
+.authCard {
+  width: 100%;
+  max-width: 420px; /* bigger */
+  border-radius: 22px;
+  padding: 22px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(16px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Green glow like your hero background */
+.authCard::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(
+    circle at 30% 20%,
+    rgba(46, 204, 113, 0.35),
+    rgba(0, 0, 0, 0) 60%
+  );
+  pointer-events: none;
+}
+
+.authHeader {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 14px;
+}
+
+.authTitle {
+  margin: 0;
+  font-size: 26px; /* bigger title */
+  line-height: 1.15;
+  color: rgba(255, 255, 255, 0.94);
+}
+
+.authSub {
+  margin: 10px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.70);
+}
+
+.authForm {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 14px; /* more spacing */
+  margin-top: 14px;
+}
+
+.field {
+  display: grid;
+  gap: 7px;
+}
+
+.fieldLabel {
+  font-size: 13px; /* bigger */
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.fieldInput {
+  height: 52px; /* bigger inputs */
+  border-radius: 16px;
+  padding: 0 14px;
+  font-size: 16px;
+  outline: none;
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.fieldInput::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.fieldInput:focus {
+  border-color: rgba(46, 204, 113, 0.55);
+  box-shadow: 0 0 0 4px rgba(46, 204, 113, 0.18);
+}
+
+.fieldSelect {
+  appearance: none;
+}
+
+/* Bigger submit button (same theme) */
+.authBtn {
+  width: 100%;
+  min-height: 52px;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+/* Footer */
+.authFooterText {
+  margin: 6px 0 0;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.70);
+  text-align: center;
+}
+
+.authLink {
+  color: rgba(46, 204, 113, 0.95);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(46, 204, 113, 0.55);
+}
+
+.authLink:hover {
+  border-bottom-color: rgba(46, 204, 113, 0.95);
+}
+
+/* Optional: make auth pages feel like full-page sections */
+@media (max-width: 480px) {
+  .authCard {
+    max-width: 100%;
+    padding: 22px 18px;
+  }
+}
+/* Pre-book Nav button (looks like your links) */
+.navLinkBtn {
+  background: transparent;
+  border: 0;
+  color: rgba(255, 255, 255, 0.85);
+  font: inherit;
+  cursor: pointer;
+  padding: 10px 12px;
+  border-radius: 12px;
+}
+.navLinkBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Modal */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  display: grid;
+  place-items: center;
+  z-index: 9999;
+  padding: 16px;
+}
+
+.modalCard {
+  width: min(520px, 94vw);
+  border-radius: 22px;
+  padding: 18px;
+  background: rgba(18, 18, 22, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.45);
+}
+
+.modalTitle {
+  margin: 0 0 10px;
+  color: white;
+  font-size: 20px;
+  letter-spacing: 0.2px;
+}
+
+.modalBody {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.stepsList {
+  margin: 0;
+  padding-left: 18px;
+}
+.stepsList li {
+  margin: 8px 0;
+}
+
+.noteBox {
+  margin-top: 12px;
+  padding: 12px 12px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.modalActions {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+.modalBtn {
+  flex: 1;
+  padding: 14px 14px; /* big for mobile */
+  border-radius: 16px;
+}
+
+/* Form inside modal */
+.formGrid {
+  display: grid;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.fieldLabel {
+  display: block;
+  margin-bottom: 6px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 13px;
+}
+
+.input {
+  width: 100%;
+  padding: 14px 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(0, 0, 0, 0.25);
+  color: white;
+  outline: none;
+  font-size: 16px; /* mobile-friendly */
+}
+
+.input:focus {
+  border-color: rgba(180, 255, 210, 0.55);
+  box-shadow: 0 0 0 3px rgba(60, 255, 170, 0.12);
+}
+
+/* Mobile tweaks */
+@media (max-width: 420px) {
+  .modalCard {
+    padding: 16px;
+    border-radius: 20px;
+  }
+  .modalTitle {
+    font-size: 18px;
+  }
+}
+.notifBellWrapper {
+  position: relative;
+  margin-right: 0.75rem;
+}
+
+.notifBellButton {
+  position: relative;
+  border: none;
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  padding: 0.45rem 0.7rem;
+  border-radius: 999px;
+  font-size: 1.1rem;
+}
+
+.notifBellButton:active {
+  transform: scale(0.96);
+}
+
+.notifBadge {
+  position: absolute;
+  top: -4px;
+  right: -2px;
+  background: #ff4d4f;
+  color: #fff;
+  font-size: 0.65rem;
+  padding: 0 5px;
+  border-radius: 999px;
+  min-width: 16px;
+  text-align: center;
+  line-height: 16px;
+}
+
+.notifPanel {
+  position: absolute;
+  right: 0;
+  top: 120%;
+  width: min(320px, 90vw);
+  max-height: 60vh;
+  background: rgba(10, 10, 20, 0.95);
+  border-radius: 16px;
+  padding: 0.75rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+  backdrop-filter: blur(16px);
+  z-index: 50;
+}
+
+.notifPanelHeader {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+  font-size: 0.95rem;
+}
+
+.notifEmpty {
+  color: #bbbbc3;
+  font-size: 0.85rem;
+  padding: 0.25rem 0;
+}
+
+.notifCard {
+  padding: 0.6rem 0.5rem;
+  border-radius: 12px;
+  margin-bottom: 0.4rem;
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+  font-size: 0.82rem;
+}
+
+.notifCard.success {
+  border-left: 3px solid #4ade80;
+}
+
+.notifCard.error {
+  border-left: 3px solid #f97373;
+}
+
+.notifTitle {
+  font-weight: 600;
+  margin-bottom: 0.15rem;
+}
+
+.notifBody {
+  font-size: 0.8rem;
+}
+
+.notifSub {
+  font-size: 0.72rem;
+  color: #9ca3af;
+  margin-top: 0.15rem;
+}
+.notifCard.notifNew {
+  border-left: 3px solid #4ade80;
+  background: rgba(74, 222, 128, 0.08);
+}

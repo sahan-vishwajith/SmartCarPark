@@ -1,0 +1,9 @@
+{
+  // ...existing code...
+  "scripts": {
+    // ...existing scripts...
+    "build": "echo \"No build step defined. Replace this with your actual build command (e.g. 'tsc -p .', 'webpack --config webpack.config.js', or your framework's build)\""
+  }
+  // ...existing code...
+}
+
