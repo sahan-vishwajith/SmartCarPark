@@ -27,7 +27,7 @@ __pycache__/
 *.py[cod]
 
 # Environment files
-.env
+backend/.env
 .env.local
 
 # Logs
