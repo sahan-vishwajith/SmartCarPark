@@ -14,3 +14,6 @@ class Booking(db.Model):
     allocated_slot_id = db.Column(db.BigInteger, db.ForeignKey("parking_slots.id"), nullable=True)
 
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
+    driver_arrived = db.Column(db.Boolean, nullable=False, default=False)
+    slot_occupied = db.Column(db.Boolean, nullable=False, default=False)
+    updated_at = db.Column(db.DateTime(timezone=True), nullable=False, server_default=func.now())

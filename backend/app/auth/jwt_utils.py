@@ -2,8 +2,10 @@ from datetime import datetime, timedelta, timezone
 import jwt
 from flask import current_app
 
+
 def utcnow():
     return datetime.now(timezone.utc)
+
 
 def create_jwt(user_id: int, username: str) -> str:
     now = utcnow()
@@ -16,5 +18,15 @@ def create_jwt(user_id: int, username: str) -> str:
     token = jwt.encode(payload, current_app.config["JWT_SECRET"], algorithm=current_app.config["JWT_ALGO"])
     return token.decode("utf-8") if isinstance(token, bytes) else token
 
+
 def decode_jwt(token: str):
-    return jwt.decode(token, current_app.config["JWT_SECRET"], algorithms=[current_app.config["JWT_ALGO"]])
+    return jwt.decode(
+        token,
+        current_app.config["JWT_SECRET"],
+        algorithms=[current_app.config["JWT_ALGO"]],
+    )
+
+
+# ✅ Add this for WebSocket + other modules expecting decode_token()
+def decode_token(token: str):
+    return decode_jwt(token)

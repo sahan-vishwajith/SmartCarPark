@@ -1,0 +1,119 @@
+/* Login/Register cards */
+
+.authWrap {
+  position: relative;
+  z-index: 2;
+  min-height: calc(100vh - 82px);
+  display: grid;
+  place-items: center;
+  padding: 16px;
+}
+
+.authCard {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 22px;
+  padding: 22px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(16px);
+  position: relative;
+  overflow: hidden;
+}
+
+.authCard::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(
+    circle at 30% 20%,
+    rgba(39, 214, 107, 0.35),
+    rgba(0, 0, 0, 0) 60%
+  );
+  pointer-events: none;
+}
+
+.authHeader {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 14px;
+}
+
+.authTitle {
+  margin: 0;
+  font-size: 26px;
+  line-height: 1.15;
+  color: rgba(255, 255, 255, 0.94);
+}
+
+.authSub {
+  margin: 10px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.authForm {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.field {
+  display: grid;
+  gap: 7px;
+}
+
+.fieldLabel {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.fieldInput {
+  height: 52px;
+  border-radius: 16px;
+  padding: 0 14px;
+  font-size: 16px;
+  outline: none;
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.fieldInput::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.fieldInput:focus {
+  border-color: rgba(39, 214, 107, 0.55);
+  box-shadow: 0 0 0 4px rgba(39, 214, 107, 0.18);
+}
+
+.authBtn {
+  width: 100%;
+  min-height: 52px;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+.authFooterText {
+  margin: 6px 0 0;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+}
+
+.authLink {
+  color: rgba(39, 214, 107, 0.95);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(39, 214, 107, 0.55);
+}
+
+.authLink:hover {
+  border-bottom-color: rgba(39, 214, 107, 0.95);
+}

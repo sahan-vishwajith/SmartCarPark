@@ -1,0 +1,100 @@
+/* Notification bell + panel */
+
+.notifBellWrapper {
+  position: relative;
+  margin-right: 0.75rem;
+}
+
+.notifBellButton {
+  position: relative;
+  border: none;
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  padding: 0.45rem 0.7rem;
+  border-radius: 999px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.notifBellButton:active {
+  transform: scale(0.96);
+}
+
+.notifBadge {
+  position: absolute;
+  top: -4px;
+  right: -2px;
+  background: #ff4d4f;
+  color: #fff;
+  font-size: 0.65rem;
+  padding: 0 5px;
+  border-radius: 999px;
+  min-width: 16px;
+  text-align: center;
+  line-height: 16px;
+}
+
+.notifPanel {
+  position: absolute;
+  right: 0;
+  top: 120%;
+  width: min(320px, 90vw);
+  max-height: 60vh;
+  background: rgba(10, 10, 20, 0.95);
+  border-radius: 16px;
+  padding: 0.75rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+  backdrop-filter: blur(16px);
+  z-index: 50;
+}
+
+.notifPanelHeader {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+  font-size: 0.95rem;
+}
+
+.notifEmpty {
+  color: #bbbbc3;
+  font-size: 0.85rem;
+  padding: 0.25rem 0;
+}
+
+.notifCard {
+  padding: 0.6rem 0.5rem;
+  border-radius: 12px;
+  margin-bottom: 0.4rem;
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+  font-size: 0.82rem;
+}
+
+.notifCard.success {
+  border-left: 3px solid #4ade80;
+}
+
+.notifCard.error {
+  border-left: 3px solid #f97373;
+}
+
+.notifCard.notifNew {
+  border-left: 3px solid #4ade80;
+  background: rgba(74, 222, 128, 0.08);
+}
+
+.notifTitle {
+  font-weight: 600;
+  margin-bottom: 0.15rem;
+}
+
+.notifBody {
+  font-size: 0.8rem;
+}
+
+.notifSub {
+  font-size: 0.72rem;
+  color: #9ca3af;
+  margin-top: 0.15rem;
+}

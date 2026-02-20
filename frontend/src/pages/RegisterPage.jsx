@@ -1,4 +1,3 @@
-// src/pages/RegisterPage.jsx
 import React, { useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { registerUser } from "../auth";
@@ -21,6 +20,7 @@ export default function RegisterPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [info, setInfo] = useState("");
+
   const navigate = useNavigate();
 
   function onChange(e) {
@@ -45,19 +45,15 @@ export default function RegisterPage() {
 
       await registerUser(payload);
 
-      setInfo("Registration successful! You can now login with your username and password.");
+      setInfo("Registration successful! Redirecting to login...");
 
-      // Navigate to login after a short delay
       setTimeout(() => {
         navigate("/login");
-      }, 1000);
+      }, 900);
     } catch (err) {
       console.error("Register error", err);
-      if (err.body?.error) {
-        setError(err.body.error);
-      } else {
-        setError("Failed to register. Please try again.");
-      }
+      if (err?.body?.error) setError(err.body.error);
+      else setError("Failed to register. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -71,8 +67,7 @@ export default function RegisterPage() {
           <p className="authSub">Register to manage your parking.</p>
         </div>
 
-        <form className="authForm" onSubmit={onSubmit}>
-          {/* Username & Password */}
+        <form className="authForm" onSubmit={onSubmit} autoComplete="off">
           <label className="field">
             <span className="fieldLabel">Username</span>
             <input
@@ -103,7 +98,6 @@ export default function RegisterPage() {
             />
           </label>
 
-          {/* Profile fields */}
           <label className="field">
             <span className="fieldLabel">Driver Name</span>
             <input
@@ -161,11 +155,7 @@ export default function RegisterPage() {
           {error && <p className="authError">{error}</p>}
           {info && <p className="authInfo">{info}</p>}
 
-          <button
-            className="primaryBtn authBtn"
-            type="submit"
-            disabled={loading}
-          >
+          <button className="primaryBtn authBtn" type="submit" disabled={loading}>
             {loading ? "Registering..." : "Register"}
           </button>
 

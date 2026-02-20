@@ -1,0 +1,246 @@
+/* App layout, background, navbar, hero, booking page */
+
+.page {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  padding: 22px 34px;
+}
+
+/* Background layers */
+.bgRadial {
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(
+        700px 450px at 15% 18%,
+        rgba(39, 214, 107, 0.22),
+        transparent 60%
+      ),
+    radial-gradient(
+        900px 600px at 70% 40%,
+        rgba(255, 255, 255, 0.06),
+        transparent 55%
+      ),
+    radial-gradient(
+        800px 600px at 40% 90%,
+        rgba(39, 214, 107, 0.1),
+        transparent 60%
+      );
+  filter: blur(10px);
+  opacity: 0.95;
+  pointer-events: none;
+}
+
+.bgNoise {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+/* Navbar */
+.nav {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 10px 4px;
+}
+
+.navLeft {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.brand {
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  font-size: 22px;
+  display: flex;
+  align-items: baseline;
+  gap: 0px;
+}
+
+.brandAccent {
+  color: var(--accent);
+}
+.brandWhite {
+  color: var(--text);
+}
+
+.navLinks {
+  display: flex;
+  gap: 18px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navLinkBtn {
+  background: transparent;
+  border: 0;
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  padding: 10px 12px;
+  border-radius: 12px;
+}
+.navLinkBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  z-index: 2;
+  max-width: 980px;
+  margin: 90px auto 0;
+  text-align: center;
+  padding: 20px 16px 0;
+}
+
+.heroTitle {
+  font-size: clamp(36px, 4.2vw, 64px);
+  line-height: 1.06;
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.heroTitleDim {
+  color: rgba(255, 255, 255, 0.32);
+  font-weight: 800;
+}
+
+.heroSubtitle {
+  margin: 18px auto 0;
+  max-width: 780px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.heroActions {
+  margin-top: 26px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Booking page */
+.bookingPage {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  padding: 18px 10px;
+}
+
+.bookingCard {
+  width: min(860px, 96vw);
+  border-radius: 22px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(16px);
+}
+
+.bookingTitle {
+  margin: 0;
+  font-size: 26px;
+}
+
+.bookingSubtitle {
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.5;
+}
+
+.bookingMapSection {
+  margin-top: 14px;
+}
+
+.summaryMap {
+  margin-top: 10px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Responsive tweaks */
+@media (max-width: 760px) {
+  .page {
+    padding: 18px 18px;
+  }
+  .navLinks {
+    display: none;
+  }
+  .hero {
+    margin-top: 70px;
+  }
+}
+.navStatus{
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+  padding: 10px 12px;
+}
+
+/* Navbar login status pill */
+.navPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+
+.navPill--online {
+  border-color: rgba(39, 214, 107, 0.35);
+  background: rgba(39, 214, 107, 0.10);
+}
+
+.navDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px rgba(39, 214, 107, 0.16);
+}
+/* Navbar status pill */
+.navPill {
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(39, 214, 107, 0.35);
+  background: rgba(39, 214, 107, 0.12);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 14px;
+  font-weight: 650;
+}
+
+/* Disabled nav button */
+.navLinkBtnDisabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}

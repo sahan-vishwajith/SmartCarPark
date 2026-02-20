@@ -1,0 +1,110 @@
+/* Modals (prebook + payment) */
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  display: grid;
+  place-items: center;
+  z-index: 9999;
+  padding: 16px;
+}
+
+.modalCard {
+  width: min(520px, 94vw);
+  border-radius: 22px;
+  padding: 18px;
+  background: rgba(18, 18, 22, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.45);
+}
+
+.modalTitle {
+  margin: 0 0 10px;
+  color: white;
+  font-size: 20px;
+  letter-spacing: 0.2px;
+}
+
+.modalBody {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.modalSummaryText {
+  margin: 0 0 10px;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.stepsList {
+  margin: 0;
+  padding-left: 18px;
+}
+.stepsList li {
+  margin: 8px 0;
+}
+
+.noteBox {
+  margin-top: 12px;
+  padding: 12px 12px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.modalActions {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.modalBtn {
+  flex: 1;
+  padding: 14px 14px;
+  border-radius: 16px;
+}
+
+/* Form inside modals */
+.formGrid {
+  display: grid;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.input {
+  width: 100%;
+  padding: 14px 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(0, 0, 0, 0.25);
+  color: white;
+  outline: none;
+  font-size: 16px;
+}
+
+.input:focus {
+  border-color: rgba(180, 255, 210, 0.55);
+  box-shadow: 0 0 0 3px rgba(60, 255, 170, 0.12);
+}
+
+.fieldRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+@media (max-width: 420px) {
+  .modalCard {
+    padding: 16px;
+    border-radius: 20px;
+  }
+  .modalTitle {
+    font-size: 18px;
+  }
+  .fieldRow {
+    grid-template-columns: 1fr;
+  }
+}

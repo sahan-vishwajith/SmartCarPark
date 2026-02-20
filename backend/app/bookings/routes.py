@@ -3,9 +3,16 @@ from datetime import datetime, timezone
 from ..extensions import db
 from ..models import Booking, ParkingSlot
 from ..auth.decorators import login_required
-from .services import allocate_free_slot, utcnow
+from .services import (
+    allocate_free_slot,
+    utcnow,
+    set_driver_arrived,
+    set_slot_occupied,
+    get_booking_tracking_state,
+)
 
 bookings_bp = Blueprint("bookings", __name__)
+
 
 @bookings_bp.post("/prebook-confirm")
 @login_required
@@ -39,19 +46,25 @@ def prebook_confirm():
             end_time=end_time,
             status="CONFIRMED",
             allocated_slot_id=slot.id,
+            # ✅ initialize tracking flags (requires DB columns)
+            driver_arrived=False,
+            slot_occupied=False,
         )
         db.session.add(booking)
         db.session.commit()
 
-        return jsonify({
-            "bookingId": booking.id,
-            "slotId": slot.label,
-            "date": date_str,
-            "startTime": start_str,
-        }), 200
+        return jsonify(
+            {
+                "bookingId": booking.id,
+                "slotId": slot.label,
+                "date": date_str,
+                "startTime": start_str,
+            }
+        ), 200
     except Exception as e:
         db.session.rollback()
         return jsonify({"error": "Internal Server Error", "message": str(e)}), 500
+
 
 @bookings_bp.get("/bookings/<int:booking_id>")
 @login_required
@@ -67,11 +80,87 @@ def get_booking(booking_id):
         slot = db.session.query(ParkingSlot).filter_by(id=booking.allocated_slot_id).first()
         slot_label = slot.label if slot else None
 
-    return jsonify({
-        "id": booking.id,
-        "slotId": slot_label,
-        "startTime": booking.start_time.isoformat(),
-        "endTime": booking.end_time.isoformat(),
-        "status": booking.status,
-    }), 200
+    return jsonify(
+        {
+            "id": booking.id,
+            "slotId": slot_label,
+            "startTime": booking.start_time.isoformat(),
+            "endTime": booking.end_time.isoformat(),
+            "status": booking.status,
+            # ✅ include tracking flags (requires DB columns)
+            "driverArrived": bool(getattr(booking, "driver_arrived", False)),
+            "slotOccupied": bool(getattr(booking, "slot_occupied", False)),
+            "updatedAt": booking.updated_at.isoformat() if hasattr(booking, "updated_at") and booking.updated_at else None,
+        }
+    ), 200
 
+
+# -----------------------------------------
+# ✅ New APIs to update tracking state in DB
+# -----------------------------------------
+
+@bookings_bp.put("/bookings/<int:booking_id>/driver-arrived")
+@login_required
+def api_set_driver_arrived(booking_id):
+    user_id = g.current_user_id
+    booking = db.session.query(Booking).filter_by(id=booking_id).first()
+    if not booking or booking.user_id != user_id:
+        return jsonify({"error": "Not Found", "message": "Booking not found"}), 404
+
+    body = request.get_json(silent=True) or {}
+    arrived = bool(body.get("driverArrived"))
+
+    updated = set_driver_arrived(booking_id, arrived)
+    if not updated:
+        return jsonify({"error": "Not Found", "message": "Booking not found"}), 404
+
+    return jsonify(
+        {
+            "ok": True,
+            "bookingId": updated.id,
+            "driverArrived": bool(updated.driver_arrived),
+        }
+    ), 200
+
+
+@bookings_bp.put("/bookings/<int:booking_id>/slot-occupied")
+@login_required
+def api_set_slot_occupied(booking_id):
+    user_id = g.current_user_id
+    booking = db.session.query(Booking).filter_by(id=booking_id).first()
+    if not booking or booking.user_id != user_id:
+        return jsonify({"error": "Not Found", "message": "Booking not found"}), 404
+
+    body = request.get_json(silent=True) or {}
+    occupied = bool(body.get("slotOccupied"))
+
+    updated = set_slot_occupied(booking_id, occupied)
+    if not updated:
+        return jsonify({"error": "Not Found", "message": "Booking not found"}), 404
+
+    return jsonify(
+        {
+            "ok": True,
+            "bookingId": updated.id,
+            "slotOccupied": bool(updated.slot_occupied),
+        }
+    ), 200
+
+
+# -----------------------------------------
+# (Optional) Tracking state fetch endpoint
+# -----------------------------------------
+
+@bookings_bp.get("/bookings/<int:booking_id>/tracking")
+@login_required
+def get_tracking(booking_id):
+    user_id = g.current_user_id
+    booking = db.session.query(Booking).filter_by(id=booking_id).first()
+    if not booking or booking.user_id != user_id:
+        return jsonify({"error": "Not Found", "message": "Booking not found"}), 404
+
+    state = get_booking_tracking_state(booking_id)
+    if not state:
+        return jsonify({"error": "Not Found", "message": "Booking not found"}), 404
+
+    return jsonify(state), 200

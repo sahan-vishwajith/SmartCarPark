@@ -4,7 +4,7 @@ from flask import Flask, jsonify
 from dotenv import load_dotenv
 
 from .config import DevConfig, ProdConfig
-from .extensions import db, cors
+from .extensions import db, cors, sock  # ✅ add sock
 
 
 def create_app():
@@ -26,8 +26,10 @@ def create_app():
 
     app.config["SQLALCHEMY_DATABASE_URI"] = db_url
 
+    # ✅ init extensions
     cors.init_app(app, resources={r"/api/*": {"origins": "*"}})
     db.init_app(app)
+    sock.init_app(app)  # ✅ websocket support
 
     # Register blueprints
     from .misc.routes import misc_bp
@@ -39,6 +41,10 @@ def create_app():
     app.register_blueprint(auth_bp, url_prefix="/api/auth")
     app.register_blueprint(bookings_bp, url_prefix="/api")
     app.register_blueprint(notifications_bp, url_prefix="/api")
+
+    # ✅ register websocket routes (not a blueprint)
+    from .bookings.ws import register_booking_ws
+    register_booking_ws(sock)
 
     # Error handlers
     @app.errorhandler(404)

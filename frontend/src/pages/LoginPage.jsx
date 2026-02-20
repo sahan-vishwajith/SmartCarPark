@@ -1,4 +1,3 @@
-// src/pages/LoginPage.jsx
 import React, { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { login } from "../auth";
@@ -7,9 +6,9 @@ export default function LoginPage() {
   const [form, setForm] = useState({ username: "", password: "" });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
   const navigate = useNavigate();
   const location = useLocation();
-
   const from = location.state?.from || "/";
 
   function onChange(e) {
@@ -24,19 +23,14 @@ export default function LoginPage() {
     try {
       await login(form.username, form.password);
 
-      // For your current backend:
-      // - username = vehicleNumber
-      // - password = phoneNumber
-      // You can mention this near your Login form in the UI.
+      // IMPORTANT: update navbar in same tab immediately
+      window.dispatchEvent(new Event("auth-changed"));
 
       navigate(from, { replace: true });
     } catch (err) {
       console.error("Login error", err);
-      if (err.body?.error) {
-        setError(err.body.error);
-      } else {
-        setError("Failed to login. Please try again.");
-      }
+      if (err?.body?.error) setError(err.body.error);
+      else setError("Failed to login. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -48,7 +42,6 @@ export default function LoginPage() {
         <div className="authHeader">
           <h2 className="authTitle">Welcome back</h2>
           <p className="authSub">Login to continue.</p>
-
         </div>
 
         <form className="authForm" onSubmit={onSubmit} autoComplete="off">
@@ -84,11 +77,7 @@ export default function LoginPage() {
 
           {error && <p className="authError">{error}</p>}
 
-          <button
-            className="primaryBtn authBtn"
-            type="submit"
-            disabled={loading}
-          >
+          <button className="primaryBtn authBtn" type="submit" disabled={loading}>
             {loading ? "Logging in..." : "Login"}
           </button>
         </form>
