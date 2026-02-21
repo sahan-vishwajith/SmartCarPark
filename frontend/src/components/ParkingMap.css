@@ -171,3 +171,88 @@
   border-radius: 18px;
   overflow: hidden;
 }
+.routeOverlay{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index: 5;
+}
+
+.routeOverlay polyline{
+  stroke: rgba(255,255,255,0.9);
+  opacity: 0.95;
+}
+
+.routeOverlay circle{
+  fill: rgba(255,255,255,0.95);
+}
+
+/* Make selected live-occupied slot RED */
+.jsonSlot.liveOccupied{
+  background: #ff3b30 !important;
+  border-color: rgba(255,255,255,0.35) !important;
+}
+
+.routeOverlay{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index: 5;
+}
+
+.routeOverlay polyline{
+  stroke: rgba(255,255,255,0.9);
+  opacity: 0.95;
+}
+
+.routeOverlay circle{
+  fill: rgba(255,255,255,0.95);
+}
+
+/* selected slot turns red when tracking.slotOccupied=true */
+.jsonSlot.liveOccupied{
+  background: #ff3b30 !important;
+  border-color: rgba(255,255,255,0.35) !important;
+}
+
+.routeOverlay{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index: 5;
+}
+
+.routeOverlay .routeMain{
+  stroke: rgba(255,255,255,0.9);
+  opacity: 0.95;
+}
+
+.routeOverlay .routeEnd{
+  fill: rgba(255,255,255,0.95);
+}
+
+.routeOverlay .routePointer{
+  stroke: rgba(255,255,255,0.75);
+  stroke-width: 2;
+  stroke-dasharray: 6 8;
+  opacity: 0.8;
+}
+
+.routeOverlay .routeTarget{
+  fill: none;
+  stroke: rgba(255,255,255,0.9);
+  stroke-width: 3;
+  opacity: 0.95;
+}
+
+/* selected slot turns red when tracking.slotOccupied=true */
+.jsonSlot.liveOccupied{
+  background: #ff3b30 !important;
+  border-color: rgba(255,255,255,0.35) !important;
+}

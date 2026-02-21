@@ -6,4 +6,6 @@ app = create_app()
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 5000))
     debug = os.getenv("FLASK_ENV") == "development"
-    app.run(host="0.0.0.0", port=port, debug=debug)
+
+    # ✅ WebSocket stability: avoid the reloader
+    app.run(host="0.0.0.0", port=port, debug=debug, use_reloader=False, threaded=True)

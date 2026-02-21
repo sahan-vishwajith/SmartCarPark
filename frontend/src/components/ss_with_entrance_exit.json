@@ -1,0 +1,4077 @@
+[
+  {
+    "type": "entrance",
+    "id": "entrance-1771670994696",
+    "label": "ENTRANCE",
+    "position": {
+      "x": 10,
+      "y": 10
+    },
+    "rotation": 0
+  },
+  {
+    "type": "exit",
+    "id": "exit-1771670994696",
+    "label": "EXIT",
+    "position": {
+      "x": 20,
+      "y": 10
+    },
+    "rotation": 0
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-0-1",
+    "label": "P1",
+    "position": {
+      "x": 77,
+      "y": 103
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 180,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 157,
+        "y": 223
+      },
+      "topRight": {
+        "x": 77,
+        "y": 223
+      },
+      "bottomRight": {
+        "x": 77,
+        "y": 103
+      },
+      "bottomLeft": {
+        "x": 157,
+        "y": 103
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-0-2",
+    "label": "P2",
+    "position": {
+      "x": 163,
+      "y": 103
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 180,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 243,
+        "y": 223
+      },
+      "topRight": {
+        "x": 163,
+        "y": 223
+      },
+      "bottomRight": {
+        "x": 163,
+        "y": 103
+      },
+      "bottomLeft": {
+        "x": 243,
+        "y": 103
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-0-3",
+    "label": "P3",
+    "position": {
+      "x": 251,
+      "y": 101
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 180,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 331,
+        "y": 221
+      },
+      "topRight": {
+        "x": 251,
+        "y": 221
+      },
+      "bottomRight": {
+        "x": 251,
+        "y": 101
+      },
+      "bottomLeft": {
+        "x": 331,
+        "y": 101
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-0-4",
+    "label": "P4",
+    "position": {
+      "x": 339,
+      "y": 101
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 180,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 419,
+        "y": 221
+      },
+      "topRight": {
+        "x": 339,
+        "y": 221
+      },
+      "bottomRight": {
+        "x": 339,
+        "y": 101
+      },
+      "bottomLeft": {
+        "x": 419,
+        "y": 101
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-0-5",
+    "label": "P5",
+    "position": {
+      "x": 429,
+      "y": 102
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 180,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 509,
+        "y": 222
+      },
+      "topRight": {
+        "x": 429,
+        "y": 222
+      },
+      "bottomRight": {
+        "x": 429,
+        "y": 102
+      },
+      "bottomLeft": {
+        "x": 509,
+        "y": 102
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-1-1",
+    "label": "P6",
+    "position": {
+      "x": 75,
+      "y": 233
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 0,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 75,
+        "y": 233
+      },
+      "topRight": {
+        "x": 155,
+        "y": 233
+      },
+      "bottomRight": {
+        "x": 155,
+        "y": 353
+      },
+      "bottomLeft": {
+        "x": 75,
+        "y": 353
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-1-2",
+    "label": "P7",
+    "position": {
+      "x": 164,
+      "y": 233
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 0,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 164,
+        "y": 233
+      },
+      "topRight": {
+        "x": 244,
+        "y": 233
+      },
+      "bottomRight": {
+        "x": 244,
+        "y": 353
+      },
+      "bottomLeft": {
+        "x": 164,
+        "y": 353
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-1-3",
+    "label": "P8",
+    "position": {
+      "x": 252,
+      "y": 234
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 0,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 252,
+        "y": 234
+      },
+      "topRight": {
+        "x": 332,
+        "y": 234
+      },
+      "bottomRight": {
+        "x": 332,
+        "y": 354
+      },
+      "bottomLeft": {
+        "x": 252,
+        "y": 354
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-1-4",
+    "label": "P9",
+    "position": {
+      "x": 343,
+      "y": 231
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 0,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 343,
+        "y": 231
+      },
+      "topRight": {
+        "x": 423,
+        "y": 231
+      },
+      "bottomRight": {
+        "x": 423,
+        "y": 351
+      },
+      "bottomLeft": {
+        "x": 343,
+        "y": 351
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-1-5",
+    "label": "P10",
+    "position": {
+      "x": 434,
+      "y": 233
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 0,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 434,
+        "y": 233
+      },
+      "topRight": {
+        "x": 514,
+        "y": 233
+      },
+      "bottomRight": {
+        "x": 514,
+        "y": 353
+      },
+      "bottomLeft": {
+        "x": 434,
+        "y": 353
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-2-1",
+    "label": "P11",
+    "position": {
+      "x": 89,
+      "y": 531
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 180,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 169,
+        "y": 651
+      },
+      "topRight": {
+        "x": 89,
+        "y": 651
+      },
+      "bottomRight": {
+        "x": 89,
+        "y": 531
+      },
+      "bottomLeft": {
+        "x": 169,
+        "y": 531
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-2-2",
+    "label": "P12",
+    "position": {
+      "x": 177,
+      "y": 529
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 180,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 257,
+        "y": 649
+      },
+      "topRight": {
+        "x": 177,
+        "y": 649
+      },
+      "bottomRight": {
+        "x": 177,
+        "y": 529
+      },
+      "bottomLeft": {
+        "x": 257,
+        "y": 529
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-2-3",
+    "label": "P13",
+    "position": {
+      "x": 264,
+      "y": 531
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 180,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 344,
+        "y": 651
+      },
+      "topRight": {
+        "x": 264,
+        "y": 651
+      },
+      "bottomRight": {
+        "x": 264,
+        "y": 531
+      },
+      "bottomLeft": {
+        "x": 344,
+        "y": 531
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-2-4",
+    "label": "P14",
+    "position": {
+      "x": 355,
+      "y": 533
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 180,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 435,
+        "y": 653
+      },
+      "topRight": {
+        "x": 355,
+        "y": 653
+      },
+      "bottomRight": {
+        "x": 355,
+        "y": 533
+      },
+      "bottomLeft": {
+        "x": 435,
+        "y": 533
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-2-5",
+    "label": "P15",
+    "position": {
+      "x": 447,
+      "y": 535
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 180,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 527,
+        "y": 655
+      },
+      "topRight": {
+        "x": 447,
+        "y": 655
+      },
+      "bottomRight": {
+        "x": 447,
+        "y": 535
+      },
+      "bottomLeft": {
+        "x": 527,
+        "y": 535
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-3-1",
+    "label": "P16",
+    "position": {
+      "x": 84,
+      "y": 669
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 0,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 84,
+        "y": 669
+      },
+      "topRight": {
+        "x": 164,
+        "y": 669
+      },
+      "bottomRight": {
+        "x": 164,
+        "y": 789
+      },
+      "bottomLeft": {
+        "x": 84,
+        "y": 789
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-3-2",
+    "label": "P17",
+    "position": {
+      "x": 173,
+      "y": 667
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 0,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 173,
+        "y": 667
+      },
+      "topRight": {
+        "x": 253,
+        "y": 667
+      },
+      "bottomRight": {
+        "x": 253,
+        "y": 787
+      },
+      "bottomLeft": {
+        "x": 173,
+        "y": 787
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-3-3",
+    "label": "P18",
+    "position": {
+      "x": 262,
+      "y": 667
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 0,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 262,
+        "y": 667
+      },
+      "topRight": {
+        "x": 342,
+        "y": 667
+      },
+      "bottomRight": {
+        "x": 342,
+        "y": 787
+      },
+      "bottomLeft": {
+        "x": 262,
+        "y": 787
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-3-4",
+    "label": "P19",
+    "position": {
+      "x": 352,
+      "y": 669
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 0,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 352,
+        "y": 669
+      },
+      "topRight": {
+        "x": 432,
+        "y": 669
+      },
+      "bottomRight": {
+        "x": 432,
+        "y": 789
+      },
+      "bottomLeft": {
+        "x": 352,
+        "y": 789
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-3-5",
+    "label": "P20",
+    "position": {
+      "x": 442,
+      "y": 671
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 0,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 442,
+        "y": 671
+      },
+      "topRight": {
+        "x": 522,
+        "y": 671
+      },
+      "bottomRight": {
+        "x": 522,
+        "y": 791
+      },
+      "bottomLeft": {
+        "x": 442,
+        "y": 791
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-4-1",
+    "label": "P21",
+    "position": {
+      "x": 82,
+      "y": 1011
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 180,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 162,
+        "y": 1131
+      },
+      "topRight": {
+        "x": 82,
+        "y": 1131
+      },
+      "bottomRight": {
+        "x": 82,
+        "y": 1011
+      },
+      "bottomLeft": {
+        "x": 162,
+        "y": 1011
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-4-2",
+    "label": "P22",
+    "position": {
+      "x": 176,
+      "y": 1007
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 180,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 256,
+        "y": 1127
+      },
+      "topRight": {
+        "x": 176,
+        "y": 1127
+      },
+      "bottomRight": {
+        "x": 176,
+        "y": 1007
+      },
+      "bottomLeft": {
+        "x": 256,
+        "y": 1007
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-4-3",
+    "label": "P23",
+    "position": {
+      "x": 267,
+      "y": 1009
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 180,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 347,
+        "y": 1129
+      },
+      "topRight": {
+        "x": 267,
+        "y": 1129
+      },
+      "bottomRight": {
+        "x": 267,
+        "y": 1009
+      },
+      "bottomLeft": {
+        "x": 347,
+        "y": 1009
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-4-4",
+    "label": "P24",
+    "position": {
+      "x": 357,
+      "y": 1007
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 180,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 437,
+        "y": 1127
+      },
+      "topRight": {
+        "x": 357,
+        "y": 1127
+      },
+      "bottomRight": {
+        "x": 357,
+        "y": 1007
+      },
+      "bottomLeft": {
+        "x": 437,
+        "y": 1007
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-4-5",
+    "label": "P25",
+    "position": {
+      "x": 446,
+      "y": 1006
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 180,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 526,
+        "y": 1126
+      },
+      "topRight": {
+        "x": 446,
+        "y": 1126
+      },
+      "bottomRight": {
+        "x": 446,
+        "y": 1006
+      },
+      "bottomLeft": {
+        "x": 526,
+        "y": 1006
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-5-1",
+    "label": "P26",
+    "position": {
+      "x": 84,
+      "y": 1151
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 0,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 84,
+        "y": 1151
+      },
+      "topRight": {
+        "x": 164,
+        "y": 1151
+      },
+      "bottomRight": {
+        "x": 164,
+        "y": 1271
+      },
+      "bottomLeft": {
+        "x": 84,
+        "y": 1271
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-5-2",
+    "label": "P27",
+    "position": {
+      "x": 174,
+      "y": 1153
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 0,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 174,
+        "y": 1153
+      },
+      "topRight": {
+        "x": 254,
+        "y": 1153
+      },
+      "bottomRight": {
+        "x": 254,
+        "y": 1273
+      },
+      "bottomLeft": {
+        "x": 174,
+        "y": 1273
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-5-3",
+    "label": "P28",
+    "position": {
+      "x": 264,
+      "y": 1151
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 0,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 264,
+        "y": 1151
+      },
+      "topRight": {
+        "x": 344,
+        "y": 1151
+      },
+      "bottomRight": {
+        "x": 344,
+        "y": 1271
+      },
+      "bottomLeft": {
+        "x": 264,
+        "y": 1271
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-5-4",
+    "label": "P29",
+    "position": {
+      "x": 353,
+      "y": 1152
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 0,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 353,
+        "y": 1152
+      },
+      "topRight": {
+        "x": 433,
+        "y": 1152
+      },
+      "bottomRight": {
+        "x": 433,
+        "y": 1272
+      },
+      "bottomLeft": {
+        "x": 353,
+        "y": 1272
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-5-5",
+    "label": "P30",
+    "position": {
+      "x": 443,
+      "y": 1151
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 0,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 443,
+        "y": 1151
+      },
+      "topRight": {
+        "x": 523,
+        "y": 1151
+      },
+      "bottomRight": {
+        "x": 523,
+        "y": 1271
+      },
+      "bottomLeft": {
+        "x": 443,
+        "y": 1271
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-6-1",
+    "label": "P31",
+    "position": {
+      "x": 84,
+      "y": 1517
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 180,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 164,
+        "y": 1637
+      },
+      "topRight": {
+        "x": 84,
+        "y": 1637
+      },
+      "bottomRight": {
+        "x": 84,
+        "y": 1517
+      },
+      "bottomLeft": {
+        "x": 164,
+        "y": 1517
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-6-2",
+    "label": "P32",
+    "position": {
+      "x": 173,
+      "y": 1520
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 180,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 253,
+        "y": 1640
+      },
+      "topRight": {
+        "x": 173,
+        "y": 1640
+      },
+      "bottomRight": {
+        "x": 173,
+        "y": 1520
+      },
+      "bottomLeft": {
+        "x": 253,
+        "y": 1520
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-6-3",
+    "label": "P33",
+    "position": {
+      "x": 262,
+      "y": 1517
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 180,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 342,
+        "y": 1637
+      },
+      "topRight": {
+        "x": 262,
+        "y": 1637
+      },
+      "bottomRight": {
+        "x": 262,
+        "y": 1517
+      },
+      "bottomLeft": {
+        "x": 342,
+        "y": 1517
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-6-4",
+    "label": "P34",
+    "position": {
+      "x": 348,
+      "y": 1518
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 180,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 428,
+        "y": 1638
+      },
+      "topRight": {
+        "x": 348,
+        "y": 1638
+      },
+      "bottomRight": {
+        "x": 348,
+        "y": 1518
+      },
+      "bottomLeft": {
+        "x": 428,
+        "y": 1518
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-6-5",
+    "label": "P35",
+    "position": {
+      "x": 434,
+      "y": 1518
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 180,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 514,
+        "y": 1638
+      },
+      "topRight": {
+        "x": 434,
+        "y": 1638
+      },
+      "bottomRight": {
+        "x": 434,
+        "y": 1518
+      },
+      "bottomLeft": {
+        "x": 514,
+        "y": 1518
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-7-1",
+    "label": "P36",
+    "position": {
+      "x": 80,
+      "y": 1659
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 0,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 80,
+        "y": 1659
+      },
+      "topRight": {
+        "x": 160,
+        "y": 1659
+      },
+      "bottomRight": {
+        "x": 160,
+        "y": 1779
+      },
+      "bottomLeft": {
+        "x": 80,
+        "y": 1779
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-7-2",
+    "label": "P37",
+    "position": {
+      "x": 167,
+      "y": 1660
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 0,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 167,
+        "y": 1660
+      },
+      "topRight": {
+        "x": 247,
+        "y": 1660
+      },
+      "bottomRight": {
+        "x": 247,
+        "y": 1780
+      },
+      "bottomLeft": {
+        "x": 167,
+        "y": 1780
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-7-3",
+    "label": "P38",
+    "position": {
+      "x": 254,
+      "y": 1662
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 0,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 254,
+        "y": 1662
+      },
+      "topRight": {
+        "x": 334,
+        "y": 1662
+      },
+      "bottomRight": {
+        "x": 334,
+        "y": 1782
+      },
+      "bottomLeft": {
+        "x": 254,
+        "y": 1782
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-7-4",
+    "label": "P39",
+    "position": {
+      "x": 341,
+      "y": 1661
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 0,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 341,
+        "y": 1661
+      },
+      "topRight": {
+        "x": 421,
+        "y": 1661
+      },
+      "bottomRight": {
+        "x": 421,
+        "y": 1781
+      },
+      "bottomLeft": {
+        "x": 341,
+        "y": 1781
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-7-5",
+    "label": "P40",
+    "position": {
+      "x": 428,
+      "y": 1662
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 0,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 428,
+        "y": 1662
+      },
+      "topRight": {
+        "x": 508,
+        "y": 1662
+      },
+      "bottomRight": {
+        "x": 508,
+        "y": 1782
+      },
+      "bottomLeft": {
+        "x": 428,
+        "y": 1782
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-8-1",
+    "label": "P41",
+    "position": {
+      "x": 731,
+      "y": 97
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 831,
+        "y": 117
+      },
+      "topRight": {
+        "x": 831,
+        "y": 197
+      },
+      "bottomRight": {
+        "x": 711,
+        "y": 197
+      },
+      "bottomLeft": {
+        "x": 711,
+        "y": 117
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-8-2",
+    "label": "P42",
+    "position": {
+      "x": 735,
+      "y": 182
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 835,
+        "y": 202
+      },
+      "topRight": {
+        "x": 835,
+        "y": 282
+      },
+      "bottomRight": {
+        "x": 715,
+        "y": 282
+      },
+      "bottomLeft": {
+        "x": 715,
+        "y": 202
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-8-3",
+    "label": "P43",
+    "position": {
+      "x": 736,
+      "y": 267
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 836,
+        "y": 287
+      },
+      "topRight": {
+        "x": 836,
+        "y": 367
+      },
+      "bottomRight": {
+        "x": 716,
+        "y": 367
+      },
+      "bottomLeft": {
+        "x": 716,
+        "y": 287
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-8-4",
+    "label": "P44",
+    "position": {
+      "x": 738,
+      "y": 354
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 838,
+        "y": 374
+      },
+      "topRight": {
+        "x": 838,
+        "y": 454
+      },
+      "bottomRight": {
+        "x": 718,
+        "y": 454
+      },
+      "bottomLeft": {
+        "x": 718,
+        "y": 374
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-8-5",
+    "label": "P45",
+    "position": {
+      "x": 740,
+      "y": 440
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 840,
+        "y": 460
+      },
+      "topRight": {
+        "x": 840,
+        "y": 540
+      },
+      "bottomRight": {
+        "x": 720,
+        "y": 540
+      },
+      "bottomLeft": {
+        "x": 720,
+        "y": 460
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-9-1",
+    "label": "P46",
+    "position": {
+      "x": 738,
+      "y": 640
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 838,
+        "y": 660
+      },
+      "topRight": {
+        "x": 838,
+        "y": 740
+      },
+      "bottomRight": {
+        "x": 718,
+        "y": 740
+      },
+      "bottomLeft": {
+        "x": 718,
+        "y": 660
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-9-2",
+    "label": "P47",
+    "position": {
+      "x": 738,
+      "y": 726
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 838,
+        "y": 746
+      },
+      "topRight": {
+        "x": 838,
+        "y": 826
+      },
+      "bottomRight": {
+        "x": 718,
+        "y": 826
+      },
+      "bottomLeft": {
+        "x": 718,
+        "y": 746
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-9-3",
+    "label": "P48",
+    "position": {
+      "x": 741,
+      "y": 813
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 841,
+        "y": 833
+      },
+      "topRight": {
+        "x": 841,
+        "y": 913
+      },
+      "bottomRight": {
+        "x": 721,
+        "y": 913
+      },
+      "bottomLeft": {
+        "x": 721,
+        "y": 833
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-9-4",
+    "label": "P49",
+    "position": {
+      "x": 741,
+      "y": 898
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 841,
+        "y": 918
+      },
+      "topRight": {
+        "x": 841,
+        "y": 998
+      },
+      "bottomRight": {
+        "x": 721,
+        "y": 998
+      },
+      "bottomLeft": {
+        "x": 721,
+        "y": 918
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771234790936-9-5",
+    "label": "P50",
+    "position": {
+      "x": 740,
+      "y": 982
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 840,
+        "y": 1002
+      },
+      "topRight": {
+        "x": 840,
+        "y": 1082
+      },
+      "bottomRight": {
+        "x": 720,
+        "y": 1082
+      },
+      "bottomLeft": {
+        "x": 720,
+        "y": 1002
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771235699080",
+    "label": "P51",
+    "position": {
+      "x": 738,
+      "y": 1066
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 838,
+        "y": 1086
+      },
+      "topRight": {
+        "x": 838,
+        "y": 1166
+      },
+      "bottomRight": {
+        "x": 718,
+        "y": 1166
+      },
+      "bottomLeft": {
+        "x": 718,
+        "y": 1086
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771235703286",
+    "label": "P52",
+    "position": {
+      "x": 738,
+      "y": 1150
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 838,
+        "y": 1170
+      },
+      "topRight": {
+        "x": 838,
+        "y": 1250
+      },
+      "bottomRight": {
+        "x": 718,
+        "y": 1250
+      },
+      "bottomLeft": {
+        "x": 718,
+        "y": 1170
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771235707892",
+    "label": "P53",
+    "position": {
+      "x": 739,
+      "y": 1233
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 839,
+        "y": 1253
+      },
+      "topRight": {
+        "x": 839,
+        "y": 1333
+      },
+      "bottomRight": {
+        "x": 719,
+        "y": 1333
+      },
+      "bottomLeft": {
+        "x": 719,
+        "y": 1253
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771235711112",
+    "label": "P54",
+    "position": {
+      "x": 741,
+      "y": 1318
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 841,
+        "y": 1338
+      },
+      "topRight": {
+        "x": 841,
+        "y": 1418
+      },
+      "bottomRight": {
+        "x": 721,
+        "y": 1418
+      },
+      "bottomLeft": {
+        "x": 721,
+        "y": 1338
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771235714842",
+    "label": "P55",
+    "position": {
+      "x": 740,
+      "y": 1402
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 840,
+        "y": 1422
+      },
+      "topRight": {
+        "x": 840,
+        "y": 1502
+      },
+      "bottomRight": {
+        "x": 720,
+        "y": 1502
+      },
+      "bottomLeft": {
+        "x": 720,
+        "y": 1422
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771235860801",
+    "label": "P56",
+    "position": {
+      "x": 740,
+      "y": 1486
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 840,
+        "y": 1506
+      },
+      "topRight": {
+        "x": 840,
+        "y": 1586
+      },
+      "bottomRight": {
+        "x": 720,
+        "y": 1586
+      },
+      "bottomLeft": {
+        "x": 720,
+        "y": 1506
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771235864806",
+    "label": "P57",
+    "position": {
+      "x": 740,
+      "y": 1570
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 840,
+        "y": 1590
+      },
+      "topRight": {
+        "x": 840,
+        "y": 1670
+      },
+      "bottomRight": {
+        "x": 720,
+        "y": 1670
+      },
+      "bottomLeft": {
+        "x": 720,
+        "y": 1590
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771235929295",
+    "label": "P58",
+    "position": {
+      "x": 746,
+      "y": 1774
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 846,
+        "y": 1794
+      },
+      "topRight": {
+        "x": 846,
+        "y": 1874
+      },
+      "bottomRight": {
+        "x": 726,
+        "y": 1874
+      },
+      "bottomLeft": {
+        "x": 726,
+        "y": 1794
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771235932585",
+    "label": "P59",
+    "position": {
+      "x": 743,
+      "y": 1856
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 843,
+        "y": 1876
+      },
+      "topRight": {
+        "x": 843,
+        "y": 1956
+      },
+      "bottomRight": {
+        "x": 723,
+        "y": 1956
+      },
+      "bottomLeft": {
+        "x": 723,
+        "y": 1876
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771235936076",
+    "label": "P60",
+    "position": {
+      "x": 746,
+      "y": 1940
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 846,
+        "y": 1960
+      },
+      "topRight": {
+        "x": 846,
+        "y": 2040
+      },
+      "bottomRight": {
+        "x": 726,
+        "y": 2040
+      },
+      "bottomLeft": {
+        "x": 726,
+        "y": 1960
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771235939364",
+    "label": "P61",
+    "position": {
+      "x": 745,
+      "y": 2022
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 845,
+        "y": 2042
+      },
+      "topRight": {
+        "x": 845,
+        "y": 2122
+      },
+      "bottomRight": {
+        "x": 725,
+        "y": 2122
+      },
+      "bottomLeft": {
+        "x": 725,
+        "y": 2042
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771235943974",
+    "label": "P62",
+    "position": {
+      "x": 743,
+      "y": 2105
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 843,
+        "y": 2125
+      },
+      "topRight": {
+        "x": 843,
+        "y": 2205
+      },
+      "bottomRight": {
+        "x": 723,
+        "y": 2205
+      },
+      "bottomLeft": {
+        "x": 723,
+        "y": 2125
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771235996453",
+    "label": "P63",
+    "position": {
+      "x": 878,
+      "y": 94
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 270,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 858,
+        "y": 194
+      },
+      "topRight": {
+        "x": 858,
+        "y": 114
+      },
+      "bottomRight": {
+        "x": 978,
+        "y": 114
+      },
+      "bottomLeft": {
+        "x": 978,
+        "y": 194
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771236094439",
+    "label": "P64",
+    "position": {
+      "x": 878,
+      "y": 180
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 270,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 858,
+        "y": 280
+      },
+      "topRight": {
+        "x": 858,
+        "y": 200
+      },
+      "bottomRight": {
+        "x": 978,
+        "y": 200
+      },
+      "bottomLeft": {
+        "x": 978,
+        "y": 280
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771236098205",
+    "label": "P65",
+    "position": {
+      "x": 879,
+      "y": 267
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 270,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 859,
+        "y": 367
+      },
+      "topRight": {
+        "x": 859,
+        "y": 287
+      },
+      "bottomRight": {
+        "x": 979,
+        "y": 287
+      },
+      "bottomLeft": {
+        "x": 979,
+        "y": 367
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771236103368",
+    "label": "P66",
+    "position": {
+      "x": 881,
+      "y": 355
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 270,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 861,
+        "y": 455
+      },
+      "topRight": {
+        "x": 861,
+        "y": 375
+      },
+      "bottomRight": {
+        "x": 981,
+        "y": 375
+      },
+      "bottomLeft": {
+        "x": 981,
+        "y": 455
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771236106740",
+    "label": "P67",
+    "position": {
+      "x": 882,
+      "y": 441
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 270,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 862,
+        "y": 541
+      },
+      "topRight": {
+        "x": 862,
+        "y": 461
+      },
+      "bottomRight": {
+        "x": 982,
+        "y": 461
+      },
+      "bottomLeft": {
+        "x": 982,
+        "y": 541
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771236225719",
+    "label": "P68",
+    "position": {
+      "x": 879,
+      "y": 644
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 270,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 859,
+        "y": 744
+      },
+      "topRight": {
+        "x": 859,
+        "y": 664
+      },
+      "bottomRight": {
+        "x": 979,
+        "y": 664
+      },
+      "bottomLeft": {
+        "x": 979,
+        "y": 744
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771236229932",
+    "label": "P69",
+    "position": {
+      "x": 880,
+      "y": 728
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 270,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 860,
+        "y": 828
+      },
+      "topRight": {
+        "x": 860,
+        "y": 748
+      },
+      "bottomRight": {
+        "x": 980,
+        "y": 748
+      },
+      "bottomLeft": {
+        "x": 980,
+        "y": 828
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771236234222",
+    "label": "P70",
+    "position": {
+      "x": 880,
+      "y": 814
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 270,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 860,
+        "y": 914
+      },
+      "topRight": {
+        "x": 860,
+        "y": 834
+      },
+      "bottomRight": {
+        "x": 980,
+        "y": 834
+      },
+      "bottomLeft": {
+        "x": 980,
+        "y": 914
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771236237990",
+    "label": "P71",
+    "position": {
+      "x": 882,
+      "y": 899
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 270,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 862,
+        "y": 999
+      },
+      "topRight": {
+        "x": 862,
+        "y": 919
+      },
+      "bottomRight": {
+        "x": 982,
+        "y": 919
+      },
+      "bottomLeft": {
+        "x": 982,
+        "y": 999
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771236241395",
+    "label": "P72",
+    "position": {
+      "x": 880,
+      "y": 984
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 270,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 860,
+        "y": 1084
+      },
+      "topRight": {
+        "x": 860,
+        "y": 1004
+      },
+      "bottomRight": {
+        "x": 980,
+        "y": 1004
+      },
+      "bottomLeft": {
+        "x": 980,
+        "y": 1084
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771236338643",
+    "label": "P73",
+    "position": {
+      "x": 882,
+      "y": 1066
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 270,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 862,
+        "y": 1166
+      },
+      "topRight": {
+        "x": 862,
+        "y": 1086
+      },
+      "bottomRight": {
+        "x": 982,
+        "y": 1086
+      },
+      "bottomLeft": {
+        "x": 982,
+        "y": 1166
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771236343036",
+    "label": "P74",
+    "position": {
+      "x": 880,
+      "y": 1151
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 270,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 860,
+        "y": 1251
+      },
+      "topRight": {
+        "x": 860,
+        "y": 1171
+      },
+      "bottomRight": {
+        "x": 980,
+        "y": 1171
+      },
+      "bottomLeft": {
+        "x": 980,
+        "y": 1251
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771236347077",
+    "label": "P75",
+    "position": {
+      "x": 881,
+      "y": 1234
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 270,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 861,
+        "y": 1334
+      },
+      "topRight": {
+        "x": 861,
+        "y": 1254
+      },
+      "bottomRight": {
+        "x": 981,
+        "y": 1254
+      },
+      "bottomLeft": {
+        "x": 981,
+        "y": 1334
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771236351436",
+    "label": "P76",
+    "position": {
+      "x": 883,
+      "y": 1315
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 270,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 863,
+        "y": 1415
+      },
+      "topRight": {
+        "x": 863,
+        "y": 1335
+      },
+      "bottomRight": {
+        "x": 983,
+        "y": 1335
+      },
+      "bottomLeft": {
+        "x": 983,
+        "y": 1415
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771236356206",
+    "label": "P77",
+    "position": {
+      "x": 882,
+      "y": 1399
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 270,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 862,
+        "y": 1499
+      },
+      "topRight": {
+        "x": 862,
+        "y": 1419
+      },
+      "bottomRight": {
+        "x": 982,
+        "y": 1419
+      },
+      "bottomLeft": {
+        "x": 982,
+        "y": 1499
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771236581900",
+    "label": "P78",
+    "position": {
+      "x": 882,
+      "y": 1486
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 270,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 862,
+        "y": 1586
+      },
+      "topRight": {
+        "x": 862,
+        "y": 1506
+      },
+      "bottomRight": {
+        "x": 982,
+        "y": 1506
+      },
+      "bottomLeft": {
+        "x": 982,
+        "y": 1586
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771236586540",
+    "label": "P79",
+    "position": {
+      "x": 884,
+      "y": 1571
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 270,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 864,
+        "y": 1671
+      },
+      "topRight": {
+        "x": 864,
+        "y": 1591
+      },
+      "bottomRight": {
+        "x": 984,
+        "y": 1591
+      },
+      "bottomLeft": {
+        "x": 984,
+        "y": 1671
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771236645303",
+    "label": "P80",
+    "position": {
+      "x": 879,
+      "y": 1777
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 270,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 859,
+        "y": 1877
+      },
+      "topRight": {
+        "x": 859,
+        "y": 1797
+      },
+      "bottomRight": {
+        "x": 979,
+        "y": 1797
+      },
+      "bottomLeft": {
+        "x": 979,
+        "y": 1877
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771236650605",
+    "label": "P81",
+    "position": {
+      "x": 879,
+      "y": 1860
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 270,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 859,
+        "y": 1960
+      },
+      "topRight": {
+        "x": 859,
+        "y": 1880
+      },
+      "bottomRight": {
+        "x": 979,
+        "y": 1880
+      },
+      "bottomLeft": {
+        "x": 979,
+        "y": 1960
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771236656412",
+    "label": "P82",
+    "position": {
+      "x": 879,
+      "y": 1943
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 270,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 859,
+        "y": 2043
+      },
+      "topRight": {
+        "x": 859,
+        "y": 1963
+      },
+      "bottomRight": {
+        "x": 979,
+        "y": 1963
+      },
+      "bottomLeft": {
+        "x": 979,
+        "y": 2043
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771236799947",
+    "label": "P83",
+    "position": {
+      "x": 880,
+      "y": 2027
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 270,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 860,
+        "y": 2127
+      },
+      "topRight": {
+        "x": 860,
+        "y": 2047
+      },
+      "bottomRight": {
+        "x": 980,
+        "y": 2047
+      },
+      "bottomLeft": {
+        "x": 980,
+        "y": 2127
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771236840303",
+    "label": "P84",
+    "position": {
+      "x": 880,
+      "y": 2108
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 270,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 860,
+        "y": 2208
+      },
+      "topRight": {
+        "x": 860,
+        "y": 2128
+      },
+      "bottomRight": {
+        "x": 980,
+        "y": 2128
+      },
+      "bottomLeft": {
+        "x": 980,
+        "y": 2208
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771236901495",
+    "label": "P85",
+    "position": {
+      "x": 1200,
+      "y": 100
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 1300,
+        "y": 120
+      },
+      "topRight": {
+        "x": 1300,
+        "y": 200
+      },
+      "bottomRight": {
+        "x": 1180,
+        "y": 200
+      },
+      "bottomLeft": {
+        "x": 1180,
+        "y": 120
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771236907820",
+    "label": "P86",
+    "position": {
+      "x": 1201,
+      "y": 184
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 1301,
+        "y": 204
+      },
+      "topRight": {
+        "x": 1301,
+        "y": 284
+      },
+      "bottomRight": {
+        "x": 1181,
+        "y": 284
+      },
+      "bottomLeft": {
+        "x": 1181,
+        "y": 204
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771236913266",
+    "label": "P87",
+    "position": {
+      "x": 1201,
+      "y": 270
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 1301,
+        "y": 290
+      },
+      "topRight": {
+        "x": 1301,
+        "y": 370
+      },
+      "bottomRight": {
+        "x": 1181,
+        "y": 370
+      },
+      "bottomLeft": {
+        "x": 1181,
+        "y": 290
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771236917954",
+    "label": "P88",
+    "position": {
+      "x": 1201,
+      "y": 355
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 1301,
+        "y": 375
+      },
+      "topRight": {
+        "x": 1301,
+        "y": 455
+      },
+      "bottomRight": {
+        "x": 1181,
+        "y": 455
+      },
+      "bottomLeft": {
+        "x": 1181,
+        "y": 375
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771236923355",
+    "label": "P89",
+    "position": {
+      "x": 1199,
+      "y": 441
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 1299,
+        "y": 461
+      },
+      "topRight": {
+        "x": 1299,
+        "y": 541
+      },
+      "bottomRight": {
+        "x": 1179,
+        "y": 541
+      },
+      "bottomLeft": {
+        "x": 1179,
+        "y": 461
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771237037161",
+    "label": "P90",
+    "position": {
+      "x": 1201,
+      "y": 690
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 1301,
+        "y": 710
+      },
+      "topRight": {
+        "x": 1301,
+        "y": 790
+      },
+      "bottomRight": {
+        "x": 1181,
+        "y": 790
+      },
+      "bottomLeft": {
+        "x": 1181,
+        "y": 710
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771237042436",
+    "label": "P91",
+    "position": {
+      "x": 1202,
+      "y": 774
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 1302,
+        "y": 794
+      },
+      "topRight": {
+        "x": 1302,
+        "y": 874
+      },
+      "bottomRight": {
+        "x": 1182,
+        "y": 874
+      },
+      "bottomLeft": {
+        "x": 1182,
+        "y": 794
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771237048116",
+    "label": "P92",
+    "position": {
+      "x": 1202,
+      "y": 858
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 1302,
+        "y": 878
+      },
+      "topRight": {
+        "x": 1302,
+        "y": 958
+      },
+      "bottomRight": {
+        "x": 1182,
+        "y": 958
+      },
+      "bottomLeft": {
+        "x": 1182,
+        "y": 878
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771237054766",
+    "label": "P93",
+    "position": {
+      "x": 1202,
+      "y": 941
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 1302,
+        "y": 961
+      },
+      "topRight": {
+        "x": 1302,
+        "y": 1041
+      },
+      "bottomRight": {
+        "x": 1182,
+        "y": 1041
+      },
+      "bottomLeft": {
+        "x": 1182,
+        "y": 961
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771237061876",
+    "label": "P94",
+    "position": {
+      "x": 1200,
+      "y": 1024
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 1300,
+        "y": 1044
+      },
+      "topRight": {
+        "x": 1300,
+        "y": 1124
+      },
+      "bottomRight": {
+        "x": 1180,
+        "y": 1124
+      },
+      "bottomLeft": {
+        "x": 1180,
+        "y": 1044
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771237147487",
+    "label": "P95",
+    "position": {
+      "x": 1200,
+      "y": 1205
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 1300,
+        "y": 1225
+      },
+      "topRight": {
+        "x": 1300,
+        "y": 1305
+      },
+      "bottomRight": {
+        "x": 1180,
+        "y": 1305
+      },
+      "bottomLeft": {
+        "x": 1180,
+        "y": 1225
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771237156271",
+    "label": "P96",
+    "position": {
+      "x": 1199,
+      "y": 1289
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 1299,
+        "y": 1309
+      },
+      "topRight": {
+        "x": 1299,
+        "y": 1389
+      },
+      "bottomRight": {
+        "x": 1179,
+        "y": 1389
+      },
+      "bottomLeft": {
+        "x": 1179,
+        "y": 1309
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771237161164",
+    "label": "P97",
+    "position": {
+      "x": 1198,
+      "y": 1376
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 1298,
+        "y": 1396
+      },
+      "topRight": {
+        "x": 1298,
+        "y": 1476
+      },
+      "bottomRight": {
+        "x": 1178,
+        "y": 1476
+      },
+      "bottomLeft": {
+        "x": 1178,
+        "y": 1396
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771237165988",
+    "label": "P98",
+    "position": {
+      "x": 1199,
+      "y": 1460
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 1299,
+        "y": 1480
+      },
+      "topRight": {
+        "x": 1299,
+        "y": 1560
+      },
+      "bottomRight": {
+        "x": 1179,
+        "y": 1560
+      },
+      "bottomLeft": {
+        "x": 1179,
+        "y": 1480
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771237169695",
+    "label": "P99",
+    "position": {
+      "x": 1198,
+      "y": 1546
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 1298,
+        "y": 1566
+      },
+      "topRight": {
+        "x": 1298,
+        "y": 1646
+      },
+      "bottomRight": {
+        "x": 1178,
+        "y": 1646
+      },
+      "bottomLeft": {
+        "x": 1178,
+        "y": 1566
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771237279930",
+    "label": "P100",
+    "position": {
+      "x": 1202,
+      "y": 1791
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 1302,
+        "y": 1811
+      },
+      "topRight": {
+        "x": 1302,
+        "y": 1891
+      },
+      "bottomRight": {
+        "x": 1182,
+        "y": 1891
+      },
+      "bottomLeft": {
+        "x": 1182,
+        "y": 1811
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771237282148",
+    "label": "P101",
+    "position": {
+      "x": 1201,
+      "y": 1876
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 1301,
+        "y": 1896
+      },
+      "topRight": {
+        "x": 1301,
+        "y": 1976
+      },
+      "bottomRight": {
+        "x": 1181,
+        "y": 1976
+      },
+      "bottomLeft": {
+        "x": 1181,
+        "y": 1896
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771237283204",
+    "label": "P102",
+    "position": {
+      "x": 1199,
+      "y": 1962
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 1299,
+        "y": 1982
+      },
+      "topRight": {
+        "x": 1299,
+        "y": 2062
+      },
+      "bottomRight": {
+        "x": 1179,
+        "y": 2062
+      },
+      "bottomLeft": {
+        "x": 1179,
+        "y": 1982
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771237283984",
+    "label": "P103",
+    "position": {
+      "x": 1200,
+      "y": 2046
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 1300,
+        "y": 2066
+      },
+      "topRight": {
+        "x": 1300,
+        "y": 2146
+      },
+      "bottomRight": {
+        "x": 1180,
+        "y": 2146
+      },
+      "bottomLeft": {
+        "x": 1180,
+        "y": 2066
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771237284708",
+    "label": "P104",
+    "position": {
+      "x": 1198,
+      "y": 2131
+    },
+    "dimensions": {
+      "width": 80,
+      "height": 120
+    },
+    "rotation": 90,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 1298,
+        "y": 2151
+      },
+      "topRight": {
+        "x": 1298,
+        "y": 2231
+      },
+      "bottomRight": {
+        "x": 1178,
+        "y": 2231
+      },
+      "bottomLeft": {
+        "x": 1178,
+        "y": 2151
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771239247956",
+    "label": "P105",
+    "position": {
+      "x": 81,
+      "y": 1909
+    },
+    "dimensions": {
+      "width": 20,
+      "height": 90
+    },
+    "rotation": 180,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 101,
+        "y": 1999
+      },
+      "topRight": {
+        "x": 81,
+        "y": 1999
+      },
+      "bottomRight": {
+        "x": 81,
+        "y": 1909
+      },
+      "bottomLeft": {
+        "x": 101,
+        "y": 1909
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771239291758",
+    "label": "P106",
+    "position": {
+      "x": 108,
+      "y": 1911
+    },
+    "dimensions": {
+      "width": 20,
+      "height": 90
+    },
+    "rotation": 180,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 128,
+        "y": 2001
+      },
+      "topRight": {
+        "x": 108,
+        "y": 2001
+      },
+      "bottomRight": {
+        "x": 108,
+        "y": 1911
+      },
+      "bottomLeft": {
+        "x": 128,
+        "y": 1911
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771239296308",
+    "label": "P107",
+    "position": {
+      "x": 138,
+      "y": 1911
+    },
+    "dimensions": {
+      "width": 20,
+      "height": 90
+    },
+    "rotation": 180,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 158,
+        "y": 2001
+      },
+      "topRight": {
+        "x": 138,
+        "y": 2001
+      },
+      "bottomRight": {
+        "x": 138,
+        "y": 1911
+      },
+      "bottomLeft": {
+        "x": 158,
+        "y": 1911
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771239302450",
+    "label": "P108",
+    "position": {
+      "x": 168,
+      "y": 1911
+    },
+    "dimensions": {
+      "width": 20,
+      "height": 90
+    },
+    "rotation": 180,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 188,
+        "y": 2001
+      },
+      "topRight": {
+        "x": 168,
+        "y": 2001
+      },
+      "bottomRight": {
+        "x": 168,
+        "y": 1911
+      },
+      "bottomLeft": {
+        "x": 188,
+        "y": 1911
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771239306635",
+    "label": "P109",
+    "position": {
+      "x": 197,
+      "y": 1909
+    },
+    "dimensions": {
+      "width": 20,
+      "height": 90
+    },
+    "rotation": 180,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 217,
+        "y": 1999
+      },
+      "topRight": {
+        "x": 197,
+        "y": 1999
+      },
+      "bottomRight": {
+        "x": 197,
+        "y": 1909
+      },
+      "bottomLeft": {
+        "x": 217,
+        "y": 1909
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771239338004",
+    "label": "P110",
+    "position": {
+      "x": 227,
+      "y": 1910
+    },
+    "dimensions": {
+      "width": 20,
+      "height": 90
+    },
+    "rotation": 180,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 247,
+        "y": 2000
+      },
+      "topRight": {
+        "x": 227,
+        "y": 2000
+      },
+      "bottomRight": {
+        "x": 227,
+        "y": 1910
+      },
+      "bottomLeft": {
+        "x": 247,
+        "y": 1910
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771239341746",
+    "label": "P111",
+    "position": {
+      "x": 256,
+      "y": 1911
+    },
+    "dimensions": {
+      "width": 20,
+      "height": 90
+    },
+    "rotation": 180,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 276,
+        "y": 2001
+      },
+      "topRight": {
+        "x": 256,
+        "y": 2001
+      },
+      "bottomRight": {
+        "x": 256,
+        "y": 1911
+      },
+      "bottomLeft": {
+        "x": 276,
+        "y": 1911
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771239806392",
+    "label": "P112",
+    "position": {
+      "x": 285,
+      "y": 1911
+    },
+    "dimensions": {
+      "width": 20,
+      "height": 90
+    },
+    "rotation": 180,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 305,
+        "y": 2001
+      },
+      "topRight": {
+        "x": 285,
+        "y": 2001
+      },
+      "bottomRight": {
+        "x": 285,
+        "y": 1911
+      },
+      "bottomLeft": {
+        "x": 305,
+        "y": 1911
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771239814197",
+    "label": "P113",
+    "position": {
+      "x": 312,
+      "y": 1909
+    },
+    "dimensions": {
+      "width": 20,
+      "height": 90
+    },
+    "rotation": 180,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 332,
+        "y": 1999
+      },
+      "topRight": {
+        "x": 312,
+        "y": 1999
+      },
+      "bottomRight": {
+        "x": 312,
+        "y": 1909
+      },
+      "bottomLeft": {
+        "x": 332,
+        "y": 1909
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771239821469",
+    "label": "P114",
+    "position": {
+      "x": 346,
+      "y": 1909
+    },
+    "dimensions": {
+      "width": 20,
+      "height": 90
+    },
+    "rotation": 180,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 366,
+        "y": 1999
+      },
+      "topRight": {
+        "x": 346,
+        "y": 1999
+      },
+      "bottomRight": {
+        "x": 346,
+        "y": 1909
+      },
+      "bottomLeft": {
+        "x": 366,
+        "y": 1909
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771239825659",
+    "label": "P115",
+    "position": {
+      "x": 378,
+      "y": 1912
+    },
+    "dimensions": {
+      "width": 20,
+      "height": 90
+    },
+    "rotation": 180,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 398,
+        "y": 2002
+      },
+      "topRight": {
+        "x": 378,
+        "y": 2002
+      },
+      "bottomRight": {
+        "x": 378,
+        "y": 1912
+      },
+      "bottomLeft": {
+        "x": 398,
+        "y": 1912
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771239972076",
+    "label": "P116",
+    "position": {
+      "x": 408,
+      "y": 1911
+    },
+    "dimensions": {
+      "width": 20,
+      "height": 90
+    },
+    "rotation": 180,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 428,
+        "y": 2001
+      },
+      "topRight": {
+        "x": 408,
+        "y": 2001
+      },
+      "bottomRight": {
+        "x": 408,
+        "y": 1911
+      },
+      "bottomLeft": {
+        "x": 428,
+        "y": 1911
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771240091000",
+    "label": "P126",
+    "position": {
+      "x": 285,
+      "y": 2013
+    },
+    "dimensions": {
+      "width": 20,
+      "height": 90
+    },
+    "rotation": 0,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 285,
+        "y": 2013
+      },
+      "topRight": {
+        "x": 305,
+        "y": 2013
+      },
+      "bottomRight": {
+        "x": 305,
+        "y": 2103
+      },
+      "bottomLeft": {
+        "x": 285,
+        "y": 2103
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771240091743",
+    "label": "P124",
+    "position": {
+      "x": 228,
+      "y": 2016
+    },
+    "dimensions": {
+      "width": 20,
+      "height": 90
+    },
+    "rotation": 0,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 228,
+        "y": 2016
+      },
+      "topRight": {
+        "x": 248,
+        "y": 2016
+      },
+      "bottomRight": {
+        "x": 248,
+        "y": 2106
+      },
+      "bottomLeft": {
+        "x": 228,
+        "y": 2106
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771240092198",
+    "label": "P123",
+    "position": {
+      "x": 199,
+      "y": 2016
+    },
+    "dimensions": {
+      "width": 20,
+      "height": 90
+    },
+    "rotation": 0,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 199,
+        "y": 2016
+      },
+      "topRight": {
+        "x": 219,
+        "y": 2016
+      },
+      "bottomRight": {
+        "x": 219,
+        "y": 2106
+      },
+      "bottomLeft": {
+        "x": 199,
+        "y": 2106
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771240092747",
+    "label": "P122",
+    "position": {
+      "x": 168,
+      "y": 2014
+    },
+    "dimensions": {
+      "width": 20,
+      "height": 90
+    },
+    "rotation": 0,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 168,
+        "y": 2014
+      },
+      "topRight": {
+        "x": 188,
+        "y": 2014
+      },
+      "bottomRight": {
+        "x": 188,
+        "y": 2104
+      },
+      "bottomLeft": {
+        "x": 168,
+        "y": 2104
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771240093267",
+    "label": "P121",
+    "position": {
+      "x": 137,
+      "y": 2014
+    },
+    "dimensions": {
+      "width": 20,
+      "height": 90
+    },
+    "rotation": 0,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 137,
+        "y": 2014
+      },
+      "topRight": {
+        "x": 157,
+        "y": 2014
+      },
+      "bottomRight": {
+        "x": 157,
+        "y": 2104
+      },
+      "bottomLeft": {
+        "x": 137,
+        "y": 2104
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771240093732",
+    "label": "P127",
+    "position": {
+      "x": 314,
+      "y": 2014
+    },
+    "dimensions": {
+      "width": 20,
+      "height": 90
+    },
+    "rotation": 0,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 314,
+        "y": 2014
+      },
+      "topRight": {
+        "x": 334,
+        "y": 2014
+      },
+      "bottomRight": {
+        "x": 334,
+        "y": 2104
+      },
+      "bottomLeft": {
+        "x": 314,
+        "y": 2104
+      }
+    }
+  },
+  {
+    "type": "slot",
+    "id": "slot-1771240094147",
+    "label": "P125",
+    "position": {
+      "x": 256,
+      "y": 2014
+    },
+    "dimensions": {
+      "width": 20,
+      "height": 90
+    },
+    "rotation": 0,
+    "occupied": false,
+    "corners": {
+      "topLeft": {
+        "x": 256,
+        "y": 2014
+      },
+      "topRight": {
+        "x": 276,
+        "y": 2014
+      },
+      "bottomRight": {
+        "x": 276,
+        "y": 2104
+      }
+    }
+  }
+]
