@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request, g
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from ..extensions import db
 from ..models import Booking, ParkingSlot
 from ..auth.decorators import login_required
@@ -13,6 +13,53 @@ from .services import (
 
 bookings_bp = Blueprint("bookings", __name__)
 
+# ✅ Sri Lanka fixed offset (Asia/Colombo) = UTC+05:30
+COLOMBO_TZ = timezone(timedelta(hours=5, minutes=30))
+
+
+def _to_utc_z(dt: datetime) -> str:
+    """Return ISO string in UTC with Z suffix."""
+    if dt is None:
+        return None
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    return dt.astimezone(timezone.utc).isoformat().replace("+00:00", "Z")
+
+
+def _parse_start_time_to_utc(data: dict) -> datetime:
+    """
+    Accepts:
+      1) ISO UTC startTime: "2026-02-21T12:30:00.000Z" or "+00:00"
+      2) Usual input: date="YYYY-MM-DD" and startTime="HH:MM" (assumed Sri Lanka local)
+      3) Usual input: date="YYYY-MM-DD" and startTimeLocal="HH:MM"
+    Returns: timezone-aware datetime in UTC
+    """
+    date_str = (data.get("date") or "").strip()
+    start_iso_or_hhmm = (data.get("startTime") or "").strip()
+    start_local = (data.get("startTimeLocal") or "").strip()
+
+    # ✅ Case 1: startTime is ISO (has 'T')
+    if start_iso_or_hhmm and "T" in start_iso_or_hhmm:
+        iso = start_iso_or_hhmm.replace("Z", "+00:00")
+        dt = datetime.fromisoformat(iso)
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt.astimezone(timezone.utc)
+
+    # ✅ Case 2: usual input with startTimeLocal (HH:MM)
+    if date_str and start_local:
+        naive = datetime.strptime(f"{date_str} {start_local}", "%Y-%m-%d %H:%M")
+        return naive.replace(tzinfo=COLOMBO_TZ).astimezone(timezone.utc)
+
+    # ✅ Case 3: usual input with startTime as HH:MM
+    if date_str and start_iso_or_hhmm:
+        # allow HH:MM or HH:MM:SS
+        fmt = "%Y-%m-%d %H:%M:%S" if start_iso_or_hhmm.count(":") == 2 else "%Y-%m-%d %H:%M"
+        naive = datetime.strptime(f"{date_str} {start_iso_or_hhmm}", fmt)
+        return naive.replace(tzinfo=COLOMBO_TZ).astimezone(timezone.utc)
+
+    raise ValueError("Missing start time input")
+
 
 @bookings_bp.post("/prebook-confirm")
 @login_required
@@ -20,33 +67,37 @@ def prebook_confirm():
     data = request.get_json() or {}
     user_id = g.current_user_id
 
-    date_str = (data.get("date") or "").strip()
-    start_str = (data.get("startTime") or "").strip()
-
-    if not date_str or not start_str:
-        return jsonify({"error": "Bad Request", "message": "date and startTime are required"}), 400
-
     try:
-        naive = datetime.strptime(f"{date_str} {start_str}", "%Y-%m-%d %H:%M")
-        start_time = naive.replace(tzinfo=timezone.utc)  # keep your current behavior
-    except ValueError:
-        return jsonify({"error": "Bad Request", "message": "Invalid date or time format"}), 400
+        start_time_utc = _parse_start_time_to_utc(data)
+    except Exception:
+        return jsonify(
+            {
+                "error": "Bad Request",
+                "message": "Invalid date or time format",
+                "hint": "Send either startTime as ISO (2026-02-21T12:30:00.000Z) OR {date:'YYYY-MM-DD', startTime:'HH:MM'}",
+            }
+        ), 400
 
-    if start_time <= utcnow():
+    if start_time_utc <= utcnow():
         return jsonify({"error": "Bad Request", "message": "Start time must be in the future"}), 400
 
     try:
-        slot, end_time = allocate_free_slot(start_time)
+        slot, end_time = allocate_free_slot(start_time_utc)
         if not slot:
             return jsonify({"error": "Conflict", "message": "No available slots for that time window"}), 409
 
+        # Ensure end_time is UTC-aware
+        if end_time and end_time.tzinfo is None:
+            end_time = end_time.replace(tzinfo=timezone.utc)
+        elif end_time:
+            end_time = end_time.astimezone(timezone.utc)
+
         booking = Booking(
             user_id=user_id,
-            start_time=start_time,
-            end_time=end_time,
+            start_time=start_time_utc,  # ✅ stored in UTC
+            end_time=end_time,          # ✅ stored in UTC
             status="CONFIRMED",
             allocated_slot_id=slot.id,
-            # ✅ initialize tracking flags (requires DB columns)
             driver_arrived=False,
             slot_occupied=False,
         )
@@ -57,10 +108,15 @@ def prebook_confirm():
             {
                 "bookingId": booking.id,
                 "slotId": slot.label,
-                "date": date_str,
-                "startTime": start_str,
+
+                # ✅ Return UTC ISO with Z (frontend will display local correctly)
+                "startTime": _to_utc_z(booking.start_time),
+                "endTime": _to_utc_z(booking.end_time),
+
+                "status": booking.status,
             }
         ), 200
+
     except Exception as e:
         db.session.rollback()
         return jsonify({"error": "Internal Server Error", "message": str(e)}), 500
@@ -84,13 +140,15 @@ def get_booking(booking_id):
         {
             "id": booking.id,
             "slotId": slot_label,
-            "startTime": booking.start_time.isoformat(),
-            "endTime": booking.end_time.isoformat(),
+
+            # ✅ Always send Z times
+            "startTime": _to_utc_z(booking.start_time),
+            "endTime": _to_utc_z(booking.end_time),
+
             "status": booking.status,
-            # ✅ include tracking flags (requires DB columns)
             "driverArrived": bool(getattr(booking, "driver_arrived", False)),
             "slotOccupied": bool(getattr(booking, "slot_occupied", False)),
-            "updatedAt": booking.updated_at.isoformat() if hasattr(booking, "updated_at") and booking.updated_at else None,
+            "updatedAt": _to_utc_z(getattr(booking, "updated_at", None)),
         }
     ), 200
 
@@ -115,11 +173,7 @@ def api_set_driver_arrived(booking_id):
         return jsonify({"error": "Not Found", "message": "Booking not found"}), 404
 
     return jsonify(
-        {
-            "ok": True,
-            "bookingId": updated.id,
-            "driverArrived": bool(updated.driver_arrived),
-        }
+        {"ok": True, "bookingId": updated.id, "driverArrived": bool(updated.driver_arrived)}
     ), 200
 
 
@@ -139,11 +193,7 @@ def api_set_slot_occupied(booking_id):
         return jsonify({"error": "Not Found", "message": "Booking not found"}), 404
 
     return jsonify(
-        {
-            "ok": True,
-            "bookingId": updated.id,
-            "slotOccupied": bool(updated.slot_occupied),
-        }
+        {"ok": True, "bookingId": updated.id, "slotOccupied": bool(updated.slot_occupied)}
     ), 200
 
 

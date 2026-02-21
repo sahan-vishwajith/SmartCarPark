@@ -18,7 +18,7 @@ export function usePrebook() {
  */
 export function PrebookProvider({ children }) {
   const [step, setStep] = useState("CLOSED"); // CLOSED | INSTRUCTIONS | PICKER | PAYMENT
-  const [draft, setDraft] = useState(null); // { date, startTime }
+  const [draft, setDraft] = useState(null); // { date, startTime, startTimeUtcIso }
 
   const api = useMemo(
     () => ({
@@ -49,8 +49,9 @@ export function PrebookFlow() {
   const navigate = useNavigate();
   const { close, _setStep, _setDraft, _draft, _step } = usePrebook();
 
-  const onNextFromPicker = (date, startTime) => {
-    _setDraft({ date, startTime });
+  // ✅ UPDATED: accept the 3rd argument from PrebookDateTimeModal
+  const onNextFromPicker = (date, startTime, startTimeUtcIso) => {
+    _setDraft({ date, startTime, startTimeUtcIso });
     _setStep("PAYMENT");
   };
 

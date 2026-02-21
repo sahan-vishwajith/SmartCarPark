@@ -1,12 +1,35 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import { toUtcIso } from "../../lib/time";
+
+function getLocalDateStr() {
+  const now = new Date();
+  const y = now.getFullYear();
+  const m = String(now.getMonth() + 1).padStart(2, "0");
+  const d = String(now.getDate()).padStart(2, "0");
+  return `${y}-${m}-${d}`;
+}
 
 export default function PrebookDateTimeModal({ onClose, onNext }) {
-  const [date, setDate] = useState(() => new Date().toISOString().slice(0, 10));
+  // ✅ use LOCAL date (not UTC)
+  const [date, setDate] = useState(() => getLocalDateStr());
   const [startTime, setStartTime] = useState("09:00");
 
+  // ✅ compute correct UTC ISO for backend storage
+  const startTimeUtcIso = useMemo(() => toUtcIso(date, startTime), [date, startTime]);
+
   const handleContinue = () => {
-    if (!date || !startTime) return alert("Please select a date and start time.");
-    onNext(date, startTime);
+    if (!date || !startTime) {
+      alert("Please select a date and start time.");
+      return;
+    }
+    if (!startTimeUtcIso) {
+      alert("Invalid date/time.");
+      return;
+    }
+
+    // ✅ pass both local inputs + UTC ISO
+    // Best practice: the next step should POST startTimeUtcIso to backend
+    onNext(date, startTime, startTimeUtcIso);
   };
 
   return (
@@ -41,6 +64,10 @@ export default function PrebookDateTimeModal({ onClose, onNext }) {
 
           <div className="noteBox">
             We&apos;ll assign you a parking slot after payment.
+            {/* Optional debug (remove later) */}
+            {/* <div style={{ marginTop: 8, fontSize: 12, opacity: 0.7 }}>
+              UTC ISO: {startTimeUtcIso}
+            </div> */}
           </div>
         </div>
 

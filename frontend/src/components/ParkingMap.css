@@ -132,6 +132,83 @@
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
 }
 
+/* Highlighted reserved slot */
+.jsonSlot.selected {
+  border-color: rgba(250, 204, 21, 0.95); /* yellow */
+  box-shadow:
+    0 0 0 2px rgba(250, 204, 21, 0.9),
+    0 18px 40px rgba(0, 0, 0, 0.4);
+}
+
+.jsonSlot.selected .jsonSlotLabel {
+  color: #fef9c3;
+}
+
+/* selected slot turns red when tracking.slotOccupied=true */
+.jsonSlot.liveOccupied {
+  background: #ff3b30 !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  box-shadow:
+    0 0 0 1px rgba(255, 59, 48, 0.25) inset,
+    0 18px 40px rgba(0, 0, 0, 0.42);
+}
+
+/* ✅ Route overlay (single definition, no duplicates) */
+.routeOverlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* The main polyline stroke color is set inline from JSX (stroke={routeColor}) */
+.routeOverlay .routeMain {
+  opacity: 0.95;
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.35));
+}
+
+/* End dot (filled) */
+.routeOverlay .routeEnd {
+  opacity: 0.95;
+  filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.35));
+}
+
+/* Pointer dashed line */
+.routeOverlay .routePointer {
+  stroke-width: 2;
+  stroke-dasharray: 6 8;
+  opacity: 0.8;
+}
+
+/* Target ring */
+.routeOverlay .routeTarget {
+  fill: none;
+  stroke-width: 3;
+  opacity: 0.95;
+}
+
+/* Optional entrance/exit points (if you render them as circles) */
+.routeOverlay .poiDot {
+  opacity: 0.95;
+  filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.35));
+}
+
+/* row of expiry + cvv in PaymentModal */
+.fieldRow {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 10px;
+}
+
+/* summary map inside booking modal/page */
+.summaryMap {
+  margin-top: 14px;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
 /* Mobile tweaks */
 @media (max-width: 640px) {
   .parkingTitleBlock .parkingTitle {
@@ -146,113 +223,31 @@
     min-height: 360px;
   }
 }
-/* Highlighted reserved slot */
-.jsonSlot.selected {
-  border-color: rgba(250, 204, 21, 0.95); /* yellow */
-  box-shadow:
-    0 0 0 2px rgba(250, 204, 21, 0.9),
-    0 18px 40px rgba(0, 0, 0, 0.4);
+/* ✅ Entrance / Exit pins always visible */
+.routeOverlay .poiCircle {
+  fill: rgba(255, 255, 255, 0.92);
+  stroke: rgba(0, 0, 0, 0.35);
+  stroke-width: 1.5;
+  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.35));
 }
 
-.jsonSlot.selected .jsonSlotLabel {
-  color: #fef9c3;
+.routeOverlay .poiLetter {
+  font-size: 10px;
+  font-weight: 900;
+  fill: rgba(0, 0, 0, 0.75);
 }
 
-/* row of expiry + cvv in PaymentModal */
-.fieldRow {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 10px;
+.routeOverlay .poiLabel {
+  font-size: 11px;
+  font-weight: 800;
+  fill: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
 }
 
-/* summary map inside booking modal */
-.summaryMap {
-  margin-top: 14px;
-  border-radius: 18px;
-  overflow: hidden;
-}
-.routeOverlay{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  pointer-events:none;
-  z-index: 5;
+.routeOverlay .poiEntrance .poiCircle {
+  stroke: rgba(34, 197, 94, 0.85);
 }
 
-.routeOverlay polyline{
-  stroke: rgba(255,255,255,0.9);
-  opacity: 0.95;
-}
-
-.routeOverlay circle{
-  fill: rgba(255,255,255,0.95);
-}
-
-/* Make selected live-occupied slot RED */
-.jsonSlot.liveOccupied{
-  background: #ff3b30 !important;
-  border-color: rgba(255,255,255,0.35) !important;
-}
-
-.routeOverlay{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  pointer-events:none;
-  z-index: 5;
-}
-
-.routeOverlay polyline{
-  stroke: rgba(255,255,255,0.9);
-  opacity: 0.95;
-}
-
-.routeOverlay circle{
-  fill: rgba(255,255,255,0.95);
-}
-
-/* selected slot turns red when tracking.slotOccupied=true */
-.jsonSlot.liveOccupied{
-  background: #ff3b30 !important;
-  border-color: rgba(255,255,255,0.35) !important;
-}
-
-.routeOverlay{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  pointer-events:none;
-  z-index: 5;
-}
-
-.routeOverlay .routeMain{
-  stroke: rgba(255,255,255,0.9);
-  opacity: 0.95;
-}
-
-.routeOverlay .routeEnd{
-  fill: rgba(255,255,255,0.95);
-}
-
-.routeOverlay .routePointer{
-  stroke: rgba(255,255,255,0.75);
-  stroke-width: 2;
-  stroke-dasharray: 6 8;
-  opacity: 0.8;
-}
-
-.routeOverlay .routeTarget{
-  fill: none;
-  stroke: rgba(255,255,255,0.9);
-  stroke-width: 3;
-  opacity: 0.95;
-}
-
-/* selected slot turns red when tracking.slotOccupied=true */
-.jsonSlot.liveOccupied{
-  background: #ff3b30 !important;
-  border-color: rgba(255,255,255,0.35) !important;
+.routeOverlay .poiExit .poiCircle {
+  stroke: rgba(77, 171, 247, 0.95);
 }
