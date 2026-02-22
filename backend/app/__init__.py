@@ -1,10 +1,14 @@
+# app/__init__.py
 import os
 from pathlib import Path
 from flask import Flask, jsonify
 from dotenv import load_dotenv
 
 from .config import DevConfig, ProdConfig
-from .extensions import db, cors, sock  # ✅ add sock
+from .extensions import db, cors, sock
+
+# ✅ Postgres NOTIFY listener
+from .bookings.pg_notify_listener import start_booking_tracking_listener
 
 
 def create_app():
@@ -26,6 +30,9 @@ def create_app():
 
     app.config["SQLALCHEMY_DATABASE_URI"] = db_url
 
+    print("ENABLE_PG_LISTENER:", os.getenv("ENABLE_PG_LISTENER"))
+    print("PG_LISTEN_DATABASE_URL set?:", bool(os.getenv("PG_LISTEN_DATABASE_URL")))
+
     # ✅ init extensions
     cors.init_app(app, resources={r"/api/*": {"origins": "*"}})
     db.init_app(app)
@@ -45,6 +52,12 @@ def create_app():
     # ✅ register websocket routes (not a blueprint)
     from .bookings.ws import register_booking_ws
     register_booking_ws(sock)
+
+    # ✅ Start PG LISTEN/NOTIFY listener when enabled
+    # NOTE: We start it unconditionally when ENABLE_PG_LISTENER=1.
+    # The listener itself prevents double-start per process.
+    if os.environ.get("ENABLE_PG_LISTENER", "0") == "1":
+        start_booking_tracking_listener(app)
 
     # Error handlers
     @app.errorhandler(404)
