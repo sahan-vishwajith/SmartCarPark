@@ -1,0 +1,43 @@
+.tyOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+}
+
+.tyCard {
+  width: min(420px, 100%);
+  border-radius: 18px;
+  padding: 18px 16px;
+  background: rgba(18, 24, 38, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  text-align: center;
+}
+
+.tyIcon {
+  font-size: 34px;
+  margin-bottom: 8px;
+}
+
+.tyTitle {
+  margin: 0 0 6px 0;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.tyText {
+  margin: 0 0 14px 0;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.4;
+}
+
+.tyBtn {
+  width: 100%;
+}

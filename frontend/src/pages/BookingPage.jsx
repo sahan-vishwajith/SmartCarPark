@@ -1,6 +1,6 @@
 // src/pages/BookingPage.jsx
-import { useEffect, useMemo, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import ParkingMap from "../components/ParkingMap";
 import { apiFetch } from "../lib/api";
 import { getToken } from "../lib/auth";
@@ -10,12 +10,60 @@ import { formatCountdown, formatDuration, formatLocalDateTime } from "../lib/tim
 import { PRICING } from "../lib/pricing";
 
 const checkoutKey = (bookingId) => `checkoutAt:${bookingId}`;
+const thankYouKey = (bookingId) => `thankYouShown:${bookingId}`;
+
+function ThankYouModal({ open, onContinue }) {
+  if (!open) return null;
+
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      style={{
+        position: "fixed",
+        inset: 0,
+        zIndex: 9999,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: 18,
+        background: "rgba(0,0,0,0.55)",
+        backdropFilter: "blur(6px)",
+      }}
+    >
+      <div
+        style={{
+          width: "min(420px, 100%)",
+          borderRadius: 18,
+          padding: "18px 16px",
+          background: "rgba(18, 24, 38, 0.92)",
+          border: "1px solid rgba(255,255,255,0.10)",
+          boxShadow: "0 10px 30px rgba(0,0,0,0.35)",
+          textAlign: "center",
+        }}
+      >
+        <div style={{ fontSize: 34, marginBottom: 8 }}>✅</div>
+        <h2 style={{ margin: "0 0 6px 0", fontSize: 20, color: "rgba(255,255,255,0.95)" }}>
+          Thank you!
+        </h2>
+        <p style={{ margin: "0 0 14px 0", fontSize: 14, color: "rgba(255,255,255,0.75)", lineHeight: 1.4 }}>
+          Your parking session is completed. Drive safe and see you again.
+        </p>
+
+        <button className="primaryBtn" style={{ width: "100%" }} onClick={onContinue}>
+          Continue
+        </button>
+      </div>
+    </div>
+  );
+}
 
 export default function BookingPage() {
   const { bookingId } = useParams();
   const location = useLocation();
-  const [booking, setBooking] = useState(location.state || null);
+  const navigate = useNavigate();
 
+  const [booking, setBooking] = useState(location.state || null);
   const tracking = useBookingTracking(bookingId);
 
   // ✅ persisted checkout state
@@ -42,9 +90,7 @@ export default function BookingPage() {
   }, [booking, bookingId]);
 
   const timers = useBookingTimers(booking, tracking);
-
   const displayStart = useMemo(() => formatLocalDateTime(timers.startAt), [timers.startAt]);
-
   const checkedOut = Boolean(checkedOutAt);
 
   // ✅ Exit countdown after checkout (15 mins)
@@ -77,32 +123,73 @@ export default function BookingPage() {
   };
 
   /**
-   * ✅ Navigation rules (updated):
-   * - Always show ENTRANCE/EXIT markers (handled inside ParkingMap)
-   * - Show route to SLOT only AFTER driverArrived = true
+   * ✅ Navigation rules (final):
+   * - Always show ENTRANCE/EXIT markers (inside ParkingMap)
+   * - Show route to SLOT only after driverArrived=true AND slotOccupied=false
+   * - Hide route to SLOT once slotOccupied=true (already parked)
    * - Show route to EXIT after checkout OR after occupied->vacated
    */
   const navigation = useMemo(() => {
     const slotOccupied = Boolean(tracking?.slotOccupied);
     const driverArrived = Boolean(tracking?.driverArrived);
 
+    // Exit route after checkout OR after occupied->vacated
     const shouldExit = checkedOut || (timers.everOccupied && !slotOccupied);
-
-    // ✅ after checkout/vacated: always show exit route
     if (shouldExit) {
       return { show: true, mode: "TO_EXIT", color: "#4dabf7" };
     }
 
-    // ✅ before driver arrives: hide route (POIs still visible)
+    // Already parked -> hide entrance→slot route
+    if (slotOccupied) {
+      return { show: false, mode: "TO_SLOT" };
+    }
+
+    // Before driver arrives -> hide route
     if (!driverArrived) {
       return { show: false, mode: "TO_SLOT" };
     }
 
-    // ✅ after driver arrives: show route to slot
-    // You asked "after driverArrived becomes true", so we show it now.
-    // (Color is red to indicate arrived; change to green if you prefer.)
+    // Arrived but not parked -> show entrance→slot route
     return { show: true, mode: "TO_SLOT", color: "#ff4d4f" };
   }, [checkedOut, timers.everOccupied, tracking?.slotOccupied, tracking?.driverArrived]);
+
+  // ✅ Thank-you popup when driver leaves:
+  // Trigger once when:
+  // - driverArrived was true at least once
+  // - now driverArrived=false AND slotOccupied=false
+  // - and we consider the session actually happened (checkedOut OR everOccupied)
+  const [showThankYou, setShowThankYou] = useState(false);
+  const everArrivedRef = useRef(false);
+
+  useEffect(() => {
+    const alreadyShown = localStorage.getItem(thankYouKey(bookingId)) === "1";
+    if (alreadyShown) return;
+
+    const driverArrived = Boolean(tracking?.driverArrived);
+    const slotOccupied = Boolean(tracking?.slotOccupied);
+
+    if (driverArrived) everArrivedRef.current = true;
+
+    const leftParking =
+      everArrivedRef.current &&
+      !driverArrived &&
+      !slotOccupied &&
+      (checkedOut || timers.everOccupied);
+
+    if (leftParking) {
+      setShowThankYou(true);
+    }
+  }, [bookingId, tracking?.driverArrived, tracking?.slotOccupied, checkedOut, timers.everOccupied]);
+
+  const handleThankYouContinue = () => {
+    try {
+      localStorage.setItem(thankYouKey(bookingId), "1");
+      localStorage.removeItem(checkoutKey(bookingId));
+    } catch {}
+
+    setShowThankYou(false);
+    navigate("/", { replace: true }); // ✅ home page
+  };
 
   if (!booking)
     return (
@@ -113,6 +200,8 @@ export default function BookingPage() {
 
   return (
     <div className="bookingPage">
+      <ThankYouModal open={showThankYou} onContinue={handleThankYouContinue} />
+
       <div className="bookingCard">
         <h1 className="bookingTitle">Booking Confirmed</h1>
 
@@ -180,10 +269,10 @@ export default function BookingPage() {
           <br />
           Driver arrived: <strong>{String(Boolean(tracking?.driverArrived))}</strong> | Slot occupied:{" "}
           <strong>{String(Boolean(tracking?.slotOccupied))}</strong>
-          {!Boolean(tracking?.driverArrived) && (
+          {!Boolean(tracking?.driverArrived) && !Boolean(tracking?.slotOccupied) && (
             <>
               <br />
-              Navigation will appear after driver arrival ✅
+              Navigation appears after arrival (and hides once parked) ✅
             </>
           )}
         </div>

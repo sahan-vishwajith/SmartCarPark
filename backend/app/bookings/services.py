@@ -9,14 +9,32 @@ def utcnow():
 
 
 def allocate_free_slot(start_time, duration_minutes=None):
+    """
+    HARD-CODE MODE (FOR TESTING):
+    ✅ Always allocate slot P77 (if it exists), ignoring overlap/busy checks.
+    This is useful for UI/path testing.
+
+    Returns: (ParkingSlot | None, end_time)
+    """
     if start_time.tzinfo is None:
         start_time = start_time.replace(tzinfo=timezone.utc)
 
     if duration_minutes is None:
-        duration_minutes = current_app.config["BOOKING_DURATION_MINUTES"]
+        duration_minutes = current_app.config.get("BOOKING_DURATION_MINUTES", 60)
 
     end_time = start_time + timedelta(minutes=duration_minutes)
 
+    # ✅ ALWAYS pick P77 if it exists (case-insensitive)
+    forced_label = "P77"
+    forced_slot = (
+        db.session.query(ParkingSlot)
+        .filter(ParkingSlot.label.ilike(forced_label))
+        .first()
+    )
+    if forced_slot:
+        return forced_slot, end_time
+
+    # --- fallback if P77 doesn't exist (keep system usable) ---
     active_slots = (
         db.session.query(ParkingSlot)
         .filter(ParkingSlot.is_active.is_(True))
@@ -26,23 +44,8 @@ def allocate_free_slot(start_time, duration_minutes=None):
     if not active_slots:
         return None, end_time
 
-    active_slot_ids = [s.id for s in active_slots]
-
-    overlapping = (
-        db.session.query(Booking)
-        .filter(
-            Booking.status == "CONFIRMED",
-            Booking.allocated_slot_id.isnot(None),
-            Booking.allocated_slot_id.in_(active_slot_ids),
-            Booking.start_time < end_time,
-            Booking.end_time > start_time,
-        )
-        .all()
-    )
-
-    busy_ids = {b.allocated_slot_id for b in overlapping}
-    free_slot = next((s for s in active_slots if s.id not in busy_ids), None)
-    return free_slot, end_time
+    # If P77 doesn't exist, just return the first active slot
+    return active_slots[0], end_time
 
 
 # -----------------------------
@@ -78,7 +81,9 @@ def get_booking_tracking_state(booking_id):
         "slotId": getattr(booking, "allocated_slot_id", None),
         "driverArrived": bool(getattr(booking, "driver_arrived", False)),
         "slotOccupied": bool(getattr(booking, "slot_occupied", False)),
-        "updatedAt": booking.updated_at.isoformat() if hasattr(booking, "updated_at") and booking.updated_at else None,
+        "updatedAt": booking.updated_at.isoformat()
+        if hasattr(booking, "updated_at") and booking.updated_at
+        else None,
     }
 
 
