@@ -43,11 +43,19 @@ def create_app():
     from .auth.routes import auth_bp
     from .bookings.routes import bookings_bp
     from .notifications.routes import notifications_bp
+    from .payments.routes import payments_bp
+    from .admin.auth_routes import admin_auth_bp
+    from .admin.routes import admin_bp
 
     app.register_blueprint(misc_bp, url_prefix="/api")
     app.register_blueprint(auth_bp, url_prefix="/api/auth")
     app.register_blueprint(bookings_bp, url_prefix="/api")
     app.register_blueprint(notifications_bp, url_prefix="/api")
+    app.register_blueprint(payments_bp, url_prefix="/api")
+
+    # Admin (separate auth)
+    app.register_blueprint(admin_auth_bp, url_prefix="/api/admin/auth")
+    app.register_blueprint(admin_bp, url_prefix="/api/admin")
 
     # ✅ register websocket routes (not a blueprint)
     from .bookings.ws import register_booking_ws

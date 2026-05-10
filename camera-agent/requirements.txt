@@ -1,0 +1,5 @@
+opencv-python==4.9.0.80
+easyocr==1.7.1
+numpy<2
+requests==2.32.3
+python-dotenv==1.0.1
