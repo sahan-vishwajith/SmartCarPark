@@ -38,6 +38,19 @@ def _broadcast_to_booking_id(booking_id: int, message: dict):
                 _clients.pop(int(booking_id), None)
 
 
+def _slot_label_for(booking: Booking):
+    """Look up the human-readable slot label for a booking (e.g. 'P12')."""
+    try:
+        from ..extensions import db
+        from ..models import ParkingSlot
+        if booking.allocated_slot_id is None:
+            return None
+        slot = db.session.query(ParkingSlot).filter_by(id=booking.allocated_slot_id).first()
+        return slot.label if slot else None
+    except Exception:
+        return None
+
+
 def broadcast_booking_tracking(booking: Booking):
     """
     Used by your existing API flows (when you update booking via this service).
@@ -47,6 +60,7 @@ def broadcast_booking_tracking(booking: Booking):
         "type": "tracking_update",
         "bookingId": booking.id,
         "slotId": booking.allocated_slot_id,  # ID; frontend uses label separately
+        "slotLabel": _slot_label_for(booking),
         "driverArrived": bool(getattr(booking, "driver_arrived", False)),
         "slotOccupied": bool(getattr(booking, "slot_occupied", False)),
         "updatedAt": booking.updated_at.isoformat() if getattr(booking, "updated_at", None) else None,
@@ -66,10 +80,22 @@ def broadcast_booking_tracking_payload(payload: dict):
     except Exception:
         return
 
+    # Resolve slotLabel from slotId if not provided
+    slot_label = payload.get("slotLabel")
+    if slot_label is None and payload.get("slotId") is not None:
+        try:
+            from ..extensions import db
+            from ..models import ParkingSlot
+            slot = db.session.query(ParkingSlot).filter_by(id=payload.get("slotId")).first()
+            slot_label = slot.label if slot else None
+        except Exception:
+            slot_label = None
+
     msg = {
         "type": "tracking_update",
         "bookingId": booking_id,
         "slotId": payload.get("slotId"),
+        "slotLabel": slot_label,
         "driverArrived": bool(payload.get("driverArrived", False)),
         "slotOccupied": bool(payload.get("slotOccupied", False)),
         "updatedAt": payload.get("updatedAt"),
@@ -128,6 +154,7 @@ def register_booking_ws(sock):
                     "type": "tracking_state",
                     "bookingId": booking.id,
                     "slotId": booking.allocated_slot_id,
+                    "slotLabel": _slot_label_for(booking),
                     "driverArrived": bool(getattr(booking, "driver_arrived", False)),
                     "slotOccupied": bool(getattr(booking, "slot_occupied", False)),
                     "updatedAt": booking.updated_at.isoformat() if getattr(booking, "updated_at", None) else None,

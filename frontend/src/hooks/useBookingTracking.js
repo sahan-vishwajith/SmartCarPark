@@ -7,6 +7,7 @@ export function useBookingTracking(bookingId) {
     connected: false,
     driverArrived: false,
     slotOccupied: false,
+    slotLabel: null,
   });
 
   const wsRef = useRef(null);
@@ -67,6 +68,7 @@ export function useBookingTracking(bookingId) {
               connected: true,
               driverArrived: !!msg.driverArrived,
               slotOccupied: !!msg.slotOccupied,
+              slotLabel: msg.slotLabel ?? null,
             });
           } else if (msg.type === "error") {
             console.error("[WS] Server error:", msg.message);

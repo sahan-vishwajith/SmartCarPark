@@ -89,6 +89,17 @@ export default function BookingPage() {
       .catch(() => {});
   }, [booking, bookingId]);
 
+  // ✅ Real-time slot reassignment: when admin changes the slot, the WS pushes
+  // the new slotLabel; sync it into the local booking so the UI reflects it
+  // immediately (no refresh / new tab needed).
+  useEffect(() => {
+    if (!booking) return;
+    const incoming = tracking?.slotLabel;
+    if (!incoming) return;
+    if (incoming === booking.slotId) return;
+    setBooking((prev) => (prev ? { ...prev, slotId: incoming } : prev));
+  }, [tracking?.slotLabel, booking]);
+
   const timers = useBookingTimers(booking, tracking);
   const displayStart = useMemo(() => formatLocalDateTime(timers.startAt), [timers.startAt]);
   const checkedOut = Boolean(checkedOutAt);
@@ -113,13 +124,35 @@ export default function BookingPage() {
     setFinalAmount(timers.amountLkr);
   }, [checkedOut, finalAmount, timers.amountLkr]);
 
-  const handleCheckout = () => {
+  const handleCheckout = async () => {
     if (!timers.hasStarted) return;
 
     const t = new Date(timers.now).toISOString();
+    const finalAmt = timers.amountLkr;
+
     localStorage.setItem(checkoutKey(bookingId), t);
     setCheckedOutAt(new Date(t));
-    setFinalAmount(timers.amountLkr);
+    setFinalAmount(finalAmt);
+
+    // ✅ Record the final payment amount on the backend so admin sees it.
+    // Non-blocking: UI does not change if this call fails.
+    try {
+      const token = getToken();
+      if (token) {
+        await apiFetch("/api/payments", {
+          method: "POST",
+          token,
+          body: {
+            bookingId: Number(bookingId),
+            amount: Number(finalAmt) || 0,
+            currency: "LKR",
+            method: "CARD",
+          },
+        });
+      }
+    } catch (err) {
+      console.warn("Failed to record payment on backend:", err);
+    }
   };
 
   /**

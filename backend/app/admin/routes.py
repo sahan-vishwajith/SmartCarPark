@@ -318,6 +318,14 @@ def reassign_slot(booking_id: int):
         booking.updated_at = _utcnow()
     db.session.commit()
 
+    # ✅ Push the change to the user's BookingPage in real-time (WebSocket)
+    try:
+        from ..bookings.ws import broadcast_booking_tracking
+        broadcast_booking_tracking(booking)
+    except Exception:
+        # Broadcast failure must not break the admin reassign
+        pass
+
     return jsonify(
         {
             "ok": True,
