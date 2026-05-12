@@ -1,15 +1,30 @@
-/* Theme tokens + base reset */
+/* Theme tokens + base reset — DARK theme with YELLOW accent ("ParkSmart") */
+
 :root {
-  --bg: #06080d;
-  --card: rgba(255, 255, 255, 0.04);
-  --border: rgba(255, 255, 255, 0.12);
+  /* Surfaces */
+  --bg: #0a0a0a;
+  --bg-soft: #141414;
+  --bg-elev: #1a1a1a;
 
-  --text: rgba(255, 255, 255, 0.92);
-  --muted: rgba(255, 255, 255, 0.62);
-  --dim: rgba(255, 255, 255, 0.35);
+  --card: #ffffff;        /* white content cards on dark page */
+  --card-soft: #f8fafc;
+  --card-text: #111111;
+  --card-text-muted: #4b5563;
+  --card-border: #e5e7eb;
 
-  --accent: #27d66b;
-  --accent2: #19b85a;
+  --border: rgba(255, 255, 255, 0.10);
+  --border-strong: rgba(255, 255, 255, 0.18);
+
+  /* Text on dark background */
+  --text: rgba(255, 255, 255, 0.95);
+  --muted: rgba(255, 255, 255, 0.70);
+  --dim: rgba(255, 255, 255, 0.45);
+
+  /* Accent — amber/gold */
+  --accent: #fbbf24;
+  --accent2: #f59e0b;
+  --accent-deep: #d97706;
+  --accent-soft: rgba(251, 191, 36, 0.16);
 }
 
 * {
@@ -37,32 +52,47 @@ select {
   font: inherit;
 }
 
-.primaryBtn,
-.secondaryBtn {
-  padding: 12px 18px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.15s ease, background 0.15s ease, border 0.15s ease;
-}
-
+/* Primary = solid yellow pill, dark text — the main CTA in the design */
 .primaryBtn {
-  background: rgba(255, 255, 255, 0.06);
-  color: var(--text);
+  padding: 12px 22px;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #111111;
+  font-weight: 800;
+  letter-spacing: 0.1px;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 10px 24px rgba(251, 191, 36, 0.25);
 }
 .primaryBtn:hover {
   transform: translateY(-1px);
-  background: rgba(255, 255, 255, 0.09);
+  background: #fcd34d;
+  box-shadow: 0 14px 30px rgba(251, 191, 36, 0.32);
+}
+.primaryBtn:active {
+  transform: translateY(0);
+}
+.primaryBtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none;
 }
 
+/* Secondary = outlined pill on dark; subtle yellow border on hover */
 .secondaryBtn {
-  background: rgba(39, 214, 107, 0.12);
-  border-color: rgba(39, 214, 107, 0.35);
+  padding: 12px 22px;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  background: transparent;
   color: var(--text);
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease, border 0.15s ease;
 }
 .secondaryBtn:hover {
   transform: translateY(-1px);
-  background: rgba(39, 214, 107, 0.18);
-  border-color: rgba(39, 214, 107, 0.55);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(251, 191, 36, 0.55);
+  color: var(--accent);
 }

@@ -15,8 +15,9 @@ export default function AdminLayout() {
     <div className="adminShell">
       <aside className="adminSidebar">
         <div className="adminBrand">
-          <span className="adminBrandAccent">Smart</span>
-          <span>Parking</span>
+          <span className="adminBrandBadge">P</span>
+          <span className="adminBrandAccent">Park</span>
+          <span>Smart</span>
           <small className="adminBrandTag">ADMIN</small>
         </div>
 

@@ -10,6 +10,7 @@ import "./styles/layout.css";
 import "./styles/auth.css";
 import "./styles/modal.css";
 import "./styles/notifications.css";
+import "./styles/bookingPage.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

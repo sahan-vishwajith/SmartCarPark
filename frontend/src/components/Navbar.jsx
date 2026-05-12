@@ -28,9 +28,9 @@ export default function Navbar() {
     <header className="nav">
       <div className="navLeft">
         <div className="brand" onClick={() => navigate("/")} role="button" tabIndex={0}>
-          <span className="brandAccent">Smart</span>
-          <span className="brandWhite">Parking</span>
-          <span className="brandWhite">App</span>
+          <span className="brandBadge">P</span>
+          <span className="brandAccent">Park</span>
+          <span className="brandWhite">Smart</span>
         </div>
 
         <nav className="navLinks">

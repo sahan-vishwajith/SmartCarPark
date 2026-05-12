@@ -35,7 +35,7 @@ export default function AdminLoginPage() {
     <div className="adminLoginShell">
       <form className="adminLoginCard" onSubmit={onSubmit}>
         <h1 className="adminLoginTitle">Admin Sign-in</h1>
-        <p className="adminLoginSub">SmartParking control panel</p>
+        <p className="adminLoginSub">ParkSmart control panel</p>
 
         {error && <div className="adminError">{error}</div>}
 
@@ -66,7 +66,7 @@ export default function AdminLoginPage() {
 
         <p className="smallText" style={{ marginTop: 14 }}>
           Need an admin account? Run{" "}
-          <code style={{ color: "#fbbf24" }}>python -m scripts.create_admin --username … --password …</code>{" "}
+          <code style={{ color: "#b45309", background: "#fffbeb", border: "1px solid #fde68a", padding: "2px 6px", borderRadius: 6, fontSize: 12 }}>python -m scripts.create_admin --username … --password …</code>{" "}
           on the backend.
         </p>
       </form>

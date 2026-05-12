@@ -3,14 +3,14 @@
 import { useMemo } from "react";
 
 const COLORS = {
-  primary: "#f59e0b",
-  primarySoft: "#fbbf2466",
-  good: "#6ee7b7",
-  bad: "#fca5a5",
-  warn: "#fbbf24",
-  info: "#93c5fd",
-  grid: "#1f2937",
-  text: "#9ca3af",
+  primary: "#fbbf24",
+  primarySoft: "#fbbf2433",
+  good: "#fbbf24",  // CONFIRMED/SUCCESS → amber (brand)
+  bad: "#ef4444",
+  warn: "#f97316",
+  info: "#3b82f6",
+  grid: "#e5e7eb",
+  text: "#6b7280",
 };
 
 function niceMax(n) {
@@ -91,7 +91,12 @@ export function StackedBar({ data, statuses, height = 240, labelKey = "date" }) 
   const stepX = innerW / Math.max(1, data.length);
 
   const colorFor = (st) =>
-    ({ CONFIRMED: COLORS.good, PENDING: COLORS.warn, CANCELLED: COLORS.bad, REJECTED: "#f87171" }[st] || COLORS.info);
+    ({
+      CONFIRMED: "#fbbf24",
+      PENDING:   "#3b82f6",
+      CANCELLED: "#ef4444",
+      REJECTED:  "#dc2626",
+    }[st] || COLORS.info);
 
   return (
     <svg viewBox={`0 0 ${width} ${height}`} width="100%" height={height} preserveAspectRatio="none">
@@ -139,16 +144,47 @@ export function Donut({ items, size = 200 }) {
   const total = items.reduce((s, x) => s + Number(x.value || 0), 0);
   const r = size / 2;
   const innerR = r * 0.62;
+  const ringStrokeWidth = (r - innerR);
+  const ringR = (r + innerR) / 2;
   let acc = 0;
 
-  const palette = ["#f59e0b", "#6ee7b7", "#93c5fd", "#fbbf24", "#fca5a5", "#a78bfa", "#fda4af", "#5eead4"];
+  const palette = ["#fbbf24", "#3b82f6", "#f97316", "#a78bfa", "#ef4444", "#0ea5e9", "#ec4899", "#fb923c"];
+
+  // Pull out segments that actually have value
+  const nonZero = items.filter((it) => Number(it.value || 0) > 0);
 
   if (total === 0) {
     return (
       <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
-        <circle cx={r} cy={r} r={r - 4} fill="none" stroke="#1f2937" strokeWidth="20" />
+        <circle cx={r} cy={r} r={ringR} fill="none" stroke="#e5e7eb" strokeWidth={ringStrokeWidth} />
         <text x={r} y={r + 4} textAnchor="middle" fontSize="11" fill={COLORS.text}>
           No data
+        </text>
+      </svg>
+    );
+  }
+
+  // Edge case: only one segment has value (100%). SVG can't draw a full-arc path
+  // (start == end), so render a single stroked-ring circle instead.
+  if (nonZero.length === 1) {
+    const only = nonZero[0];
+    const idx = items.indexOf(only);
+    const color = only.color || palette[idx % palette.length];
+    return (
+      <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+        <circle
+          cx={r}
+          cy={r}
+          r={ringR}
+          fill="none"
+          stroke={color}
+          strokeWidth={ringStrokeWidth}
+        />
+        <text x={r} y={r - 4} textAnchor="middle" fontSize="16" fontWeight="800" fill="#111111">
+          {total.toLocaleString()}
+        </text>
+        <text x={r} y={r + 14} textAnchor="middle" fontSize="10" fill={COLORS.text}>
+          total
         </text>
       </svg>
     );
@@ -180,10 +216,10 @@ export function Donut({ items, size = 200 }) {
         ].join(" ");
         return <path key={i} d={d} fill={it.color || palette[i % palette.length]} />;
       })}
-      <text x={r} y={r - 4} textAnchor="middle" fontSize="14" fontWeight="700" fill="#e6edf3">
+      <text x={r} y={r - 4} textAnchor="middle" fontSize="16" fontWeight="800" fill="#111111">
         {total.toLocaleString()}
       </text>
-      <text x={r} y={r + 12} textAnchor="middle" fontSize="10" fill={COLORS.text}>
+      <text x={r} y={r + 14} textAnchor="middle" fontSize="10" fill={COLORS.text}>
         total
       </text>
     </svg>
@@ -199,12 +235,12 @@ export function Heatmap({ matrix, daysLabels, hoursLabels }) {
   }, [matrix]);
 
   const cellColor = (v) => {
-    if (!v) return "#0a0e14";
+    if (!v) return "#f3f4f6";
     const t = v / max;
-    // amber gradient
-    const r = Math.round(245 * t + 30 * (1 - t));
-    const g = Math.round(158 * t + 30 * (1 - t));
-    const b = Math.round(11 * t + 60 * (1 - t));
+    // light amber → deep amber gradient (interpolates from #fef3c7 to #b45309)
+    const r = Math.round(180 * t + 254 * (1 - t));
+    const g = Math.round(83 * t + 243 * (1 - t));
+    const b = Math.round(9 * t + 199 * (1 - t));
     return `rgb(${r},${g},${b})`;
   };
 

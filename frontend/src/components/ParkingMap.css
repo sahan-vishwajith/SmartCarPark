@@ -17,15 +17,17 @@
 
 .parkingTitleBlock .parkingTitle {
   font-size: 22px;
-  font-weight: 800;
-  color: #eafff0;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.3px;
+  opacity: 1;
 }
 
 .parkingTitleBlock .parkingSub {
   margin-top: 4px;
   font-size: 12px;
-  opacity: 0.8;
-  color: #d7ffe2;
+  opacity: 1;
+  color: rgba(255, 255, 255, 0.78);
 }
 
 /* Legend */
@@ -34,7 +36,8 @@
   gap: 14px;
   align-items: center;
   font-size: 12px;
-  color: rgba(240, 255, 245, 0.9);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .legendItem {
@@ -51,11 +54,11 @@
 }
 
 .dot.free {
-  background: rgba(34, 197, 94, 0.95);
+  background: #fbbf24;
 }
 
 .dot.occ {
-  background: rgba(239, 68, 68, 0.95);
+  background: #ef4444;
 }
 
 /* ✅ Mobile scroll container */
@@ -63,8 +66,8 @@
   width: 100%;
   overflow: auto;
   border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  background: transparent; /* ✅ remove background */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
   -webkit-overflow-scrolling: touch;
 }
 
@@ -76,41 +79,42 @@
   min-height: 420px;
 }
 
-/* ✅ Slot = BOX */
+/* ✅ Slot = BOX — clean white tile, amber border (works on dark & light bg) */
 .jsonSlot {
   position: absolute;
   padding: 0;
-  border: 1px solid rgba(255, 255, 255, 0.13);
+  border: 1px solid rgba(251, 191, 36, 0.65);
   cursor: pointer;
-  background: rgba(22, 163, 74, 0.12);
-  backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.94);
 
   box-shadow:
-    0 0 0 1px rgba(22, 163, 74, 0.18) inset,
-    0 10px 25px rgba(0, 0, 0, 0.22);
+    0 0 0 1px rgba(251, 191, 36, 0.22) inset,
+    0 8px 18px rgba(0, 0, 0, 0.35);
 
   transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
 }
 
 .jsonSlot:hover {
   transform: translateY(-1px);
+  background: #ffffff;
   box-shadow:
-    0 0 0 1px rgba(22, 163, 74, 0.26) inset,
-    0 14px 30px rgba(0, 0, 0, 0.28);
+    0 0 0 1px rgba(251, 191, 36, 0.55) inset,
+    0 12px 24px rgba(0, 0, 0, 0.40);
 }
 
 /* Occupied */
 .jsonSlot.occupied {
-  background: rgba(239, 68, 68, 0.14);
+  background: rgba(254, 226, 226, 0.95);
+  border-color: rgba(239, 68, 68, 0.65);
   box-shadow:
-    0 0 0 1px rgba(239, 68, 68, 0.22) inset,
-    0 10px 25px rgba(0, 0, 0, 0.22);
+    0 0 0 1px rgba(239, 68, 68, 0.30) inset,
+    0 8px 18px rgba(0, 0, 0, 0.35);
 }
 
 .jsonSlot.occupied:hover {
   box-shadow:
-    0 0 0 1px rgba(239, 68, 68, 0.30) inset,
-    0 14px 30px rgba(0, 0, 0, 0.28);
+    0 0 0 1px rgba(239, 68, 68, 0.45) inset,
+    0 12px 24px rgba(0, 0, 0, 0.40);
 }
 
 /* Center content */
@@ -121,27 +125,32 @@
   place-items: center;
 }
 
-/* ✅ Smaller text, no wrap */
+/* ✅ Smaller text, no wrap — dark amber on white tile = always readable */
 .jsonSlotLabel {
   font-size: var(--labelSize, 10px);
   line-height: 1;
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: 0.15px;
   white-space: nowrap;
-  color: rgba(255, 255, 255, 0.94);
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
+  color: #92400e;
+  text-shadow: none;
 }
 
-/* Highlighted reserved slot */
+.jsonSlot.occupied .jsonSlotLabel {
+  color: #991b1b;
+}
+
+/* Highlighted reserved slot — solid yellow tile, matches the brand */
 .jsonSlot.selected {
-  border-color: rgba(250, 204, 21, 0.95); /* yellow */
+  background: #fbbf24;
+  border-color: #f59e0b;
   box-shadow:
-    0 0 0 2px rgba(250, 204, 21, 0.9),
-    0 18px 40px rgba(0, 0, 0, 0.4);
+    0 0 0 2px #fbbf24,
+    0 14px 30px rgba(251, 191, 36, 0.45);
 }
 
 .jsonSlot.selected .jsonSlotLabel {
-  color: #fef9c3;
+  color: #111111;
 }
 
 /* selected slot turns red when tracking.slotOccupied=true */
@@ -223,25 +232,25 @@
     min-height: 360px;
   }
 }
-/* ✅ Entrance / Exit pins always visible */
+/* ✅ Entrance / Exit pins always visible (white pins on any background) */
 .routeOverlay .poiCircle {
-  fill: rgba(255, 255, 255, 0.92);
-  stroke: rgba(0, 0, 0, 0.35);
+  fill: #ffffff;
+  stroke: rgba(0, 0, 0, 0.5);
   stroke-width: 1.5;
-  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.35));
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.45));
 }
 
 .routeOverlay .poiLetter {
   font-size: 10px;
   font-weight: 900;
-  fill: rgba(0, 0, 0, 0.75);
+  fill: #111111;
 }
 
 .routeOverlay .poiLabel {
   font-size: 11px;
   font-weight: 800;
-  fill: rgba(255, 255, 255, 0.92);
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+  fill: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.65);
 }
 
 .routeOverlay .poiEntrance .poiCircle {

@@ -6,36 +6,59 @@
   align-items: center;
   justify-content: center;
   padding: 18px;
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.70);
+  backdrop-filter: blur(8px);
 }
 
 .tyCard {
   width: min(420px, 100%);
-  border-radius: 18px;
-  padding: 18px 16px;
-  background: rgba(18, 24, 38, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  border-radius: 20px;
+  padding: 24px 22px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.55),
+    0 8px 22px rgba(0, 0, 0, 0.30);
   text-align: center;
+  color: #111111;
+  position: relative;
+  overflow: hidden;
+}
+.tyCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #fbbf24, #f59e0b);
 }
 
 .tyIcon {
-  font-size: 34px;
-  margin-bottom: 8px;
+  font-size: 26px;
+  margin: 4px auto 12px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #fbbf24;
+  color: #111111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  box-shadow: 0 10px 24px rgba(251, 191, 36, 0.40);
 }
 
 .tyTitle {
   margin: 0 0 6px 0;
   font-size: 20px;
-  color: rgba(255, 255, 255, 0.95);
+  font-weight: 900;
+  color: #111111;
 }
 
 .tyText {
-  margin: 0 0 14px 0;
+  margin: 0 0 18px 0;
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.75);
-  line-height: 1.4;
+  color: #4b5563;
+  line-height: 1.55;
 }
 
 .tyBtn {

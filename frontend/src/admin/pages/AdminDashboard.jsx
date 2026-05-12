@@ -145,20 +145,20 @@ export default function AdminDashboard() {
             <div className="muted">No bookings yet.</div>
           )}
           <div className="legend">
-            <span><span className="dot" style={{ background: "#6ee7b7" }} />CONFIRMED</span>
-            <span><span className="dot" style={{ background: "#fbbf24" }} />PENDING</span>
-            <span><span className="dot" style={{ background: "#fca5a5" }} />CANCELLED</span>
-            <span><span className="dot" style={{ background: "#f87171" }} />REJECTED</span>
+            <span><span className="dot" style={{ background: "#fbbf24" }} />CONFIRMED</span>
+            <span><span className="dot" style={{ background: "#3b82f6" }} />PENDING</span>
+            <span><span className="dot" style={{ background: "#ef4444" }} />CANCELLED</span>
+            <span><span className="dot" style={{ background: "#dc2626" }} />REJECTED</span>
           </div>
         </div>
         <div className="adminCard">
           <div className="adminCardTitle">Live slot occupancy</div>
           <Donut
             items={[
-              { label: "Free", value: overview?.occupancyNow?.free ?? 0, color: "#6ee7b7" },
-              { label: "Reserved", value: overview?.occupancyNow?.reserved ?? 0, color: "#93c5fd" },
-              { label: "Occupied", value: overview?.occupancyNow?.occupied ?? 0, color: "#fbbf24" },
-              { label: "Inactive", value: overview?.occupancyNow?.inactive ?? 0, color: "#9ca3af" },
+              { label: "Free",     value: overview?.occupancyNow?.free ?? 0,     color: "#fbbf24" },
+              { label: "Reserved", value: overview?.occupancyNow?.reserved ?? 0, color: "#3b82f6" },
+              { label: "Occupied", value: overview?.occupancyNow?.occupied ?? 0, color: "#dc2626" },
+              { label: "Inactive", value: overview?.occupancyNow?.inactive ?? 0, color: "#94a3b8" },
             ]}
             size={180}
           />

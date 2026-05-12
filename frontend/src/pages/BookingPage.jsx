@@ -27,32 +27,75 @@ function ThankYouModal({ open, onContinue }) {
         alignItems: "center",
         justifyContent: "center",
         padding: 18,
-        background: "rgba(0,0,0,0.55)",
-        backdropFilter: "blur(6px)",
+        background: "rgba(0, 0, 0, 0.70)",
+        backdropFilter: "blur(8px)",
       }}
     >
       <div
+        className="bookingPage"
         style={{
           width: "min(420px, 100%)",
-          borderRadius: 18,
-          padding: "18px 16px",
-          background: "rgba(18, 24, 38, 0.92)",
-          border: "1px solid rgba(255,255,255,0.10)",
-          boxShadow: "0 10px 30px rgba(0,0,0,0.35)",
-          textAlign: "center",
+          minHeight: "auto",
+          margin: 0,
+          padding: 0,
+          background: "transparent",
+          overflow: "visible",
+          display: "block",
         }}
       >
-        <div style={{ fontSize: 34, marginBottom: 8 }}>✅</div>
-        <h2 style={{ margin: "0 0 6px 0", fontSize: 20, color: "rgba(255,255,255,0.95)" }}>
-          Thank you!
-        </h2>
-        <p style={{ margin: "0 0 14px 0", fontSize: 14, color: "rgba(255,255,255,0.75)", lineHeight: 1.4 }}>
-          Your parking session is completed. Drive safe and see you again.
-        </p>
+        <div
+          style={{
+            width: "100%",
+            borderRadius: 20,
+            padding: "24px 22px",
+            background: "#ffffff",
+            border: "1px solid #e5e7eb",
+            boxShadow: "0 30px 80px rgba(0, 0, 0, 0.55), 0 8px 22px rgba(0, 0, 0, 0.30)",
+            textAlign: "center",
+            color: "#111111",
+            position: "relative",
+            overflow: "hidden",
+          }}
+        >
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              height: 5,
+              background: "linear-gradient(90deg, #fbbf24, #f59e0b)",
+            }}
+          />
+          <div
+            style={{
+              width: 56,
+              height: 56,
+              margin: "8px auto 14px",
+              borderRadius: "50%",
+              background: "#fbbf24",
+              color: "#111111",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: 26,
+              fontWeight: 900,
+              boxShadow: "0 10px 24px rgba(251, 191, 36, 0.45)",
+            }}
+          >
+            ✓
+          </div>
+          <h2 style={{ margin: "0 0 6px 0", fontSize: 20, fontWeight: 900, color: "#111111" }}>
+            Thank you!
+          </h2>
+          <p style={{ margin: "0 0 18px 0", fontSize: 14, color: "#4b5563", lineHeight: 1.55 }}>
+            Your parking session is completed. Drive safe and see you again.
+          </p>
 
-        <button className="primaryBtn" style={{ width: "100%" }} onClick={onContinue}>
-          Continue
-        </button>
+          <button className="primaryBtn" style={{ width: "100%" }} onClick={onContinue}>
+            Continue
+          </button>
+        </div>
       </div>
     </div>
   );

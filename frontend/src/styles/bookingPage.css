@@ -1,0 +1,217 @@
+/* ==========================================================================
+   Booking page — DARK theme with WHITE inner cards + YELLOW accents.
+   Scoped to .bookingPage so only this page is themed here.
+   ========================================================================== */
+
+.bookingPage {
+  position: relative;
+  z-index: 5;
+
+  /* Span edge-to-edge inside the parent .page (which has padding: 22px 34px) */
+  margin: -8px -34px 0;
+  padding: 36px 34px 64px;
+  min-height: calc(100vh - 90px);
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  background:
+    radial-gradient(820px 480px at 12% 0%, rgba(251, 191, 36, 0.14), transparent 60%),
+    radial-gradient(820px 480px at 95% 18%, rgba(59, 130, 246, 0.08), transparent 60%),
+    linear-gradient(180deg, #0a0a0a 0%, #141414 100%);
+
+  overflow: hidden;
+  color: var(--text);
+}
+
+@media (max-width: 760px) {
+  .bookingPage {
+    margin: -8px -18px 0;
+    padding: 24px 18px 48px;
+  }
+}
+
+/* ----- Card surface ----- */
+.bookingPage .bookingCard {
+  width: min(940px, 100%);
+  border-radius: 22px;
+  padding: 28px;
+  background: #ffffff;
+  border: 1px solid var(--card-border);
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.55),
+    0 8px 22px rgba(0, 0, 0, 0.30);
+  color: var(--card-text);
+  position: relative;
+  overflow: hidden;
+}
+.bookingPage .bookingCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+}
+
+/* ----- Title + subtitle ----- */
+.bookingPage .bookingTitle {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--card-text);
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.bookingPage .bookingTitle::before {
+  content: "P";
+  background: var(--accent);
+  color: #111111;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 900;
+  box-shadow: 0 6px 16px rgba(251, 191, 36, 0.35);
+}
+
+.bookingPage .bookingSubtitle {
+  margin-top: 14px;
+  color: var(--card-text-muted);
+  line-height: 1.6;
+  font-size: 15px;
+}
+.bookingPage .bookingSubtitle strong {
+  color: var(--card-text);
+  background: rgba(251, 191, 36, 0.22);
+  padding: 1px 6px;
+  border-radius: 5px;
+  font-weight: 700;
+}
+
+/* ----- Timer grid (the two boxes: countdown / amount) ----- */
+.bookingPage .timerGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 22px;
+}
+@media (max-width: 600px) {
+  .bookingPage .timerGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.bookingPage .timerBox {
+  position: relative;
+  background: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  padding: 18px 20px;
+  overflow: hidden;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+.bookingPage .timerBox::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+}
+.bookingPage .timerBox:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.10);
+}
+
+.bookingPage .timerLabel {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  color: var(--card-text-muted);
+  font-weight: 800;
+}
+
+.bookingPage .timerValue {
+  margin-top: 8px;
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--card-text);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.6px;
+  line-height: 1.05;
+}
+
+.bookingPage .timerHint {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--card-text-muted);
+}
+.bookingPage .timerHint strong {
+  color: var(--accent-deep);
+  font-weight: 800;
+}
+
+/* ----- Primary button (Checkout, Continue) - inside .bookingPage ----- */
+.bookingPage .primaryBtn {
+  background: var(--accent);
+  color: #111111;
+  border: 1px solid var(--accent);
+  padding: 14px 26px;
+  border-radius: 14px;
+  font-weight: 800;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(251, 191, 36, 0.28);
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms;
+}
+.bookingPage .primaryBtn:hover {
+  transform: translateY(-1px);
+  background: #fcd34d;
+  box-shadow: 0 14px 28px rgba(251, 191, 36, 0.36);
+}
+.bookingPage .primaryBtn:active {
+  transform: translateY(0);
+}
+.bookingPage .primaryBtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ----- Note boxes ----- */
+.bookingPage .noteBox {
+  margin-top: 14px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  color: #78350f;
+  font-size: 14px;
+  line-height: 1.55;
+}
+.bookingPage .noteBox strong {
+  color: #78350f;
+  font-weight: 800;
+}
+
+/* ----- Map frame: dark surface so the live map's white title + tiles pop ----- */
+.bookingPage .bookingMapSection {
+  margin-top: 24px;
+}
+.bookingPage .summaryMap {
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  overflow: hidden;
+  background:
+    radial-gradient(700px 380px at 12% 0%, rgba(251, 191, 36, 0.10), transparent 60%),
+    linear-gradient(180deg, #0a0a0a 0%, #141414 100%);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.30);
+  padding: 6px;
+}

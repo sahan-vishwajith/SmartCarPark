@@ -54,7 +54,7 @@ export default function AdminPaymentsPage() {
 
       {/* "After payment happens, admin should see a summary of that vehicle's parking" */}
       {latest && (
-        <div className="adminCard" style={{ marginBottom: 16, borderColor: "#f59e0b" }}>
+        <div className="adminCard" style={{ marginBottom: 16, borderColor: "#fbbf24", boxShadow: "0 10px 28px rgba(251, 191, 36, 0.18)" }}>
           <div className="adminCardTitle">Most recent payment — vehicle parking summary</div>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 14 }}>
             <div>
@@ -68,7 +68,7 @@ export default function AdminPaymentsPage() {
             </div>
             <div>
               <div className="smallText">Slot</div>
-              <div style={{ fontSize: 22, fontWeight: 800, color: "#fbbf24" }}>
+              <div style={{ fontSize: 22, fontWeight: 800, color: "#0f172a" }}>
                 {latest.slot?.label || "—"}
               </div>
               <div className="smallText">
@@ -84,7 +84,7 @@ export default function AdminPaymentsPage() {
             </div>
             <div>
               <div className="smallText">Payment</div>
-              <div style={{ fontSize: 22, fontWeight: 800, color: "#6ee7b7" }}>
+              <div style={{ fontSize: 22, fontWeight: 800, color: "#059669" }}>
                 {fmtMoney(latest.payment?.amount, latest.payment?.currency)}
               </div>
               <div className="smallText">

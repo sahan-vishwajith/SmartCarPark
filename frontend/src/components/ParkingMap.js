@@ -147,7 +147,7 @@ export default function ParkingMap({
   const navMode = navigation?.mode || "TO_SLOT";
   const routeColor = useMemo(() => {
     if (navigation?.color) return navigation.color;
-    return tracking?.driverArrived ? "#ff4d4f" : "#22c55e";
+    return tracking?.driverArrived ? "#ef4444" : "#fbbf24";
   }, [navigation?.color, tracking?.driverArrived]);
 
   const selectedRectPx = useMemo(() => {
